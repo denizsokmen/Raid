@@ -1,4 +1,4 @@
 cs392
 =====
 
-cs392 project
+proje.jpg
