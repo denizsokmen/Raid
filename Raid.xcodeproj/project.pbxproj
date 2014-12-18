@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		DF2C254F1A43032E009568FF /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF2C254E1A43032E009568FF /* NetworkManager.swift */; };
+		DF6526501A43494A00999CB0 /* frog.jpg in Resources */ = {isa = PBXBuildFile; fileRef = DF65264F1A43494A00999CB0 /* frog.jpg */; };
 		DFB4A4651A41E46D004DF91A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFB4A4641A41E46D004DF91A /* AppDelegate.swift */; };
 		DFB4A4671A41E46D004DF91A /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFB4A4661A41E46D004DF91A /* ViewController.swift */; };
 		DFB4A46A1A41E46D004DF91A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DFB4A4681A41E46D004DF91A /* Main.storyboard */; };
@@ -26,6 +28,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		DF2C254E1A43032E009568FF /* NetworkManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
+		DF65264F1A43494A00999CB0 /* frog.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = frog.jpg; sourceTree = "<group>"; };
 		DFB4A45F1A41E46D004DF91A /* Raid.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Raid.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DFB4A4631A41E46D004DF91A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		DFB4A4641A41E46D004DF91A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -56,6 +60,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		DF65261E1A43492600999CB0 /* Images */ = {
+			isa = PBXGroup;
+			children = (
+				DF65264F1A43494A00999CB0 /* frog.jpg */,
+			);
+			name = Images;
+			sourceTree = "<group>";
+		};
 		DFB4A4561A41E46D004DF91A = {
 			isa = PBXGroup;
 			children = (
@@ -77,12 +89,14 @@
 		DFB4A4611A41E46D004DF91A /* Raid */ = {
 			isa = PBXGroup;
 			children = (
+				DF65261E1A43492600999CB0 /* Images */,
 				DFB4A4641A41E46D004DF91A /* AppDelegate.swift */,
 				DFB4A4661A41E46D004DF91A /* ViewController.swift */,
 				DFB4A4681A41E46D004DF91A /* Main.storyboard */,
 				DFB4A46B1A41E46D004DF91A /* Images.xcassets */,
 				DFB4A46D1A41E46D004DF91A /* LaunchScreen.xib */,
 				DFB4A4621A41E46D004DF91A /* Supporting Files */,
+				DF2C254E1A43032E009568FF /* NetworkManager.swift */,
 			);
 			path = Raid;
 			sourceTree = "<group>";
@@ -193,6 +207,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				DFB4A46A1A41E46D004DF91A /* Main.storyboard in Resources */,
+				DF6526501A43494A00999CB0 /* frog.jpg in Resources */,
 				DFB4A46F1A41E46D004DF91A /* LaunchScreen.xib in Resources */,
 				DFB4A46C1A41E46D004DF91A /* Images.xcassets in Resources */,
 			);
@@ -212,6 +227,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DF2C254F1A43032E009568FF /* NetworkManager.swift in Sources */,
 				DFB4A4671A41E46D004DF91A /* ViewController.swift in Sources */,
 				DFB4A4651A41E46D004DF91A /* AppDelegate.swift in Sources */,
 			);
@@ -405,6 +421,7 @@
 				DFB4A4801A41E46E004DF91A /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		DFB4A4811A41E46E004DF91A /* Build configuration list for PBXNativeTarget "RaidTests" */ = {
 			isa = XCConfigurationList;
@@ -413,6 +430,7 @@
 				DFB4A4831A41E46E004DF91A /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

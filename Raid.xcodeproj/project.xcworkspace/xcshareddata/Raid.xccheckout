@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>13B45472-61E6-4149-AD70-61B65C6A8FF8</string>
+	<key>IDESourceControlProjectName</key>
+	<string>Raid</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>F2F081DF7A00A41C0DF92A0E7BB0092716A60ED5</key>
+		<string>https://github.com/denizsokmen/Raid</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>Raid.xcodeproj</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>F2F081DF7A00A41C0DF92A0E7BB0092716A60ED5</key>
+		<string>../..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>https://github.com/denizsokmen/Raid</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>111</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>F2F081DF7A00A41C0DF92A0E7BB0092716A60ED5</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>F2F081DF7A00A41C0DF92A0E7BB0092716A60ED5</string>
+			<key>IDESourceControlWCCName</key>
+			<string>Raid</string>
+		</dict>
+	</array>
+</dict>
+</plist>

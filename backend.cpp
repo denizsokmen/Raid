@@ -22,6 +22,9 @@ void clientWorker(int socket) {
 	    close(socket);
 	    break;
 	}
+    else if (count > 0) {
+        printf("received: %s\n", buff);
+    }
     }
     
 }
@@ -34,7 +37,7 @@ int main(int Count, char *Strings[]) {
 
     if ( (sockfd = socket(AF_INET, SOCK_STREAM, 0)) < 0 ) {
 	perror("Socket");
-	exit(errno);
+	_exit(errno);
     }
 
     
@@ -44,12 +47,12 @@ int main(int Count, char *Strings[]) {
 
     if ( bind(sockfd, (struct sockaddr*)&self, sizeof(self)) != 0 ) {
 	perror("socket--bind");
-	exit(errno);
+	_exit(errno);
     }
 
     if ( listen(sockfd, 20) != 0 ) {
 	perror("socket--listen");
-	exit(errno);
+	_exit(errno);
     }
 
     while (1) {	

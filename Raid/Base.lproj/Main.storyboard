@@ -1,13 +1,14 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6211" systemVersion="14A298i" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="vXZ-lx-hvc">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6254" systemVersion="14B25" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="vXZ-lx-hvc">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6204"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
         <scene sceneID="ufC-wZ-h7g">
             <objects>
-                <viewController id="vXZ-lx-hvc" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="vXZ-lx-hvc" customClass="ViewController" customModule="Raid" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="jyV-Pf-zRb"/>
                         <viewControllerLayoutGuide type="bottom" id="2fi-mo-0CV"/>
@@ -15,11 +16,87 @@
                     <view key="view" contentMode="scaleToFill" id="kh9-bI-dsS">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Username" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="l4u-bU-HQJ">
+                                <rect key="frame" x="16" y="277" width="568" height="34"/>
+                                <accessibility key="accessibilityConfiguration" hint="Username" label="Username"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="G3F-Yn-fy1">
+                                <rect key="frame" x="16" y="319" width="568" height="34"/>
+                                <accessibility key="accessibilityConfiguration" hint="Password" label="Password"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LFb-lK-Uto">
+                                <rect key="frame" x="16" y="361" width="568" height="219"/>
+                                <state key="normal" title="Login">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <segue destination="vre-pd-cPl" kind="show" id="h2O-Hq-lZL"/>
+                                </connections>
+                            </button>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="frog.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="vXp-OO-qnn">
+                                <rect key="frame" x="16" y="20" width="568" height="249"/>
+                            </imageView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="vXp-OO-qnn" firstAttribute="trailing" secondItem="kh9-bI-dsS" secondAttribute="trailingMargin" id="0gu-7g-6ZG"/>
+                            <constraint firstItem="LFb-lK-Uto" firstAttribute="trailing" secondItem="kh9-bI-dsS" secondAttribute="trailingMargin" id="3sJ-nH-Y0J"/>
+                            <constraint firstItem="vXp-OO-qnn" firstAttribute="top" secondItem="jyV-Pf-zRb" secondAttribute="bottom" id="9S2-LY-hNl"/>
+                            <constraint firstItem="l4u-bU-HQJ" firstAttribute="height" secondItem="G3F-Yn-fy1" secondAttribute="height" id="Htv-wN-cnM"/>
+                            <constraint firstItem="LFb-lK-Uto" firstAttribute="top" secondItem="G3F-Yn-fy1" secondAttribute="bottom" constant="8" id="Iuu-CU-4fB"/>
+                            <constraint firstItem="2fi-mo-0CV" firstAttribute="top" secondItem="LFb-lK-Uto" secondAttribute="bottom" constant="20" id="LeW-t9-CIt"/>
+                            <constraint firstItem="l4u-bU-HQJ" firstAttribute="trailing" secondItem="kh9-bI-dsS" secondAttribute="trailingMargin" id="Mve-Zg-pkJ"/>
+                            <constraint firstItem="G3F-Yn-fy1" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leadingMargin" id="OXE-xb-ULj"/>
+                            <constraint firstItem="LFb-lK-Uto" firstAttribute="top" secondItem="G3F-Yn-fy1" secondAttribute="bottom" constant="8" id="apn-ce-Wmw"/>
+                            <constraint firstItem="G3F-Yn-fy1" firstAttribute="trailing" secondItem="kh9-bI-dsS" secondAttribute="trailingMargin" id="bwM-Gp-gnG"/>
+                            <constraint firstAttribute="centerY" secondItem="LFb-lK-Uto" secondAttribute="centerY" constant="-170.5" id="cCf-EF-41J"/>
+                            <constraint firstItem="G3F-Yn-fy1" firstAttribute="top" secondItem="l4u-bU-HQJ" secondAttribute="bottom" constant="8" id="cgq-nf-0Ix"/>
+                            <constraint firstItem="LFb-lK-Uto" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leadingMargin" id="jEr-Ds-Zp3"/>
+                            <constraint firstItem="vXp-OO-qnn" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leadingMargin" id="o7u-S4-gDf"/>
+                            <constraint firstItem="l4u-bU-HQJ" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leadingMargin" id="qag-Au-hx3"/>
+                            <constraint firstItem="l4u-bU-HQJ" firstAttribute="top" secondItem="vXp-OO-qnn" secondAttribute="bottom" constant="8" id="sno-ct-cq4"/>
+                            <constraint firstItem="G3F-Yn-fy1" firstAttribute="top" secondItem="l4u-bU-HQJ" secondAttribute="bottom" constant="8" id="zfe-Xd-gYP"/>
+                        </constraints>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="361" y="441"/>
+        </scene>
+        <!--Table View Controller-->
+        <scene sceneID="YwF-kh-wWO">
+            <objects>
+                <tableViewController id="vre-pd-cPl" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="10" sectionFooterHeight="10" id="cul-ad-YLg">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                        <prototypes>
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="f2r-xw-odn">
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="f2r-xw-odn" id="EiE-2X-tkk">
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="vre-pd-cPl" id="R9m-Cs-euz"/>
+                            <outlet property="delegate" destination="vre-pd-cPl" id="ALN-EO-WAI"/>
+                        </connections>
+                    </tableView>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="P3f-d1-KdF" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1017" y="545"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="frog.jpg" width="247" height="249"/>
+    </resources>
 </document>
