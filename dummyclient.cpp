@@ -18,7 +18,7 @@ int main(void)
     memset(recvBuff, '0' ,sizeof(recvBuff));
     if((sockfd = socket(AF_INET, SOCK_STREAM, 0))< 0)
     {
-	printf("\n Error : Could not create socket \n");
+	perror("socket error");
 	return 1;
     }
  
@@ -28,7 +28,7 @@ int main(void)
  
     if(connect(sockfd, (struct sockaddr *)&serv_addr, sizeof(serv_addr))<0)
     {
-	printf("\n Error : Connect Failed \n");
+	perror("connect error");
 	return 1;
     }
     const char *kek = "kek";
@@ -40,14 +40,14 @@ int main(void)
 	recvBuff[n] = 0;
 	if(fputs(recvBuff, stdout) == EOF)
 	{
-	    printf("\n Error : Fputs error");
+	    perror("error");
 	}
 	printf("\n");
     }
  
     if( n < 0)
     {
-	printf("\n Read Error \n");
+        perror("socket read error");
     }
  
  

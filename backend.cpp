@@ -4,32 +4,102 @@
 #include <resolv.h>
 #include <unistd.h>
 #include <arpa/inet.h>
+#include <stdlib.h>
 #include <errno.h>
 #include <thread>
 #include <vector>
+#include <map>
+#include <string.h>
+#include <atomic>
 
 #define MY_PORT		9999
 #define MAXBUF		1024
 
 
-void clientWorker(int socket) {
+struct user_t {
+    int id;
+    char username[100];
+    char password[100];
+};
+
+struct client_t {
+    int sock;
+    user_t* user;
+};
+
+struct bugreport_t {
+    int id;
+    int reporterid;
+    int priority;
+    int assignee;
+    char title[100];
+    char description[1000];
+};
+
+
+std::atomic<int> USERCOUNTER, REPORTCOUNTER, CLIENTCOUNTER;
+std::map<int, bugreport_t*> bugreports;
+std::map<int, user_t*> users;
+std::map<int, client_t*> clients;
+
+
+void createAccount(const char* user, const char* pass) {
+    user_t *usr = (user_t *) malloc(sizeof(user_t));
+    usr->id = USERCOUNTER++;
+    strcpy(usr->username, user);
+    strcpy(usr->password, pass);
+    users[usr->id] = usr;
+}
+
+void addClient(int sock) {
+    client_t *client = (client_t*) malloc(sizeof(client_t));
+    client->sock = sock;
+    client->user = NULL;
+    clients[client->sock] = client;
+}
+
+void reportBug(const char* title, const char* desc, int asgn, int reporter, int prio) {
+    bugreport_t *report = (bugreport_t*) malloc(sizeof(bugreport_t));
+    report->id = REPORTCOUNTER++;
+    strcpy(report->title, title);
+    strcpy(report->description, desc);
+    report->assignee = asgn;
+    report->reporterid = reporter;
+    report->priority = prio;
+    bugreports[report->id] = report;
+}
+
+void disconnectClient(int sock) {
+    client_t *client = clients[sock];
+    if (client != NULL) {
+	free(client);
+	clients.erase(sock);
+    }
+    close(sock);
+}
+
+void clientWorker(int sock) {
     char buff[1024];
-    printf("het\n");
     while (1) {
-	int count = recv(socket, buff, 1024, 0);
+	int count = recv(sock, buff, 1024, 0);
 	if (count <= 0) {
-	    printf("disconnected: %d\n", socket);
-	    close(socket);
+	    perror("client disconnected");
+	    disconnectClient(sock);
 	    break;
 	}
 	else if (count > 0) {
 	    printf("received: %s\n", buff);
 	}
     }
-    
 }
 
+
+
 int main(int Count, char *Strings[]) {  
+    USERCOUNTER.store(0);
+    REPORTCOUNTER.store(0);
+    CLIENTCOUNTER.store(0);
+
     std::vector<std::thread> clientworkers;
     int sockfd;
     struct sockaddr_in self;
@@ -62,7 +132,7 @@ int main(int Count, char *Strings[]) {
         
 	clientfd = accept(sockfd, (struct sockaddr*)&client_addr, &addrlen);
 	printf("%s:%d connected\n", inet_ntoa(client_addr.sin_addr), ntohs(client_addr.sin_port));
-	
+	addClient(clientfd);
         clientworkers.push_back(std::thread(clientWorker, clientfd));
 
     }
