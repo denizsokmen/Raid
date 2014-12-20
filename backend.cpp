@@ -17,14 +17,14 @@ void clientWorker(int socket) {
     printf("het\n");
     while (1) {
 	int count = recv(socket, buff, 1024, 0);
-	if (count == -1) {
+	if (count <= 0) {
 	    printf("disconnected: %d\n", socket);
 	    close(socket);
 	    break;
 	}
-    else if (count > 0) {
-        printf("received: %s\n", buff);
-    }
+	else if (count > 0) {
+	    printf("received: %s\n", buff);
+	}
     }
     
 }
