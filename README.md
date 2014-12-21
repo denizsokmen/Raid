@@ -1,4 +1,3 @@
-cs392
+Raid
 =====
-aaa
-proje.jpg
+Very simple bug tracker for iOS.
