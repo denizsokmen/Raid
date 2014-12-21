@@ -11,6 +11,7 @@
 #include <map>
 #include <string.h>
 #include <atomic>
+#include <mutex>
 
 #define MY_PORT		9999
 #define MAXBUF		1024
@@ -36,7 +37,7 @@ struct bugreport_t {
     char description[1000];
 };
 
-
+std::mutex mapMutex;
 std::atomic<int> USERCOUNTER, REPORTCOUNTER, CLIENTCOUNTER;
 std::map<int, bugreport_t*> bugreports;
 std::map<int, user_t*> users;
@@ -44,6 +45,7 @@ std::map<int, client_t*> clients;
 
 
 void createAccount(const char* user, const char* pass) {
+    std::lock_guard<std::mutex> lock(mapMutex);
     user_t *usr = (user_t *) malloc(sizeof(user_t));
     usr->id = USERCOUNTER++;
     strcpy(usr->username, user);
@@ -52,6 +54,7 @@ void createAccount(const char* user, const char* pass) {
 }
 
 void addClient(int sock) {
+    std::lock_guard<std::mutex> lock(mapMutex);
     client_t *client = (client_t*) malloc(sizeof(client_t));
     client->sock = sock;
     client->user = NULL;
@@ -59,6 +62,7 @@ void addClient(int sock) {
 }
 
 void reportBug(const char* title, const char* desc, int asgn, int reporter, int prio) {
+    std::lock_guard<std::mutex> lock(mapMutex);
     bugreport_t *report = (bugreport_t*) malloc(sizeof(bugreport_t));
     report->id = REPORTCOUNTER++;
     strcpy(report->title, title);
@@ -70,6 +74,7 @@ void reportBug(const char* title, const char* desc, int asgn, int reporter, int 
 }
 
 void disconnectClient(int sock) {
+    std::lock_guard<std::mutex> lock(mapMutex);
     client_t *client = clients[sock];
     if (client != NULL) {
 	free(client);
