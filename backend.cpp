@@ -26,6 +26,14 @@ struct user_t {
 struct client_t {
     int sock;
     user_t* user;
+    int headerbytes;
+    int bytesleft;
+    int bufferpointer;
+    union len {
+	unsigned char length_c[2];
+	short length_s;
+    } length;
+    char buffer[2048];
 };
 
 struct bugreport_t {
@@ -42,7 +50,6 @@ std::atomic<int> USERCOUNTER, REPORTCOUNTER, CLIENTCOUNTER;
 std::map<int, bugreport_t*> bugreports;
 std::map<int, user_t*> users;
 std::map<int, client_t*> clients;
-
 
 void createAccount(const char* user, const char* pass) {
     std::lock_guard<std::mutex> lock(mapMutex);
@@ -83,19 +90,72 @@ void disconnectClient(int sock) {
     close(sock);
 }
 
+
+void processPacket(client_t *client) {
+    char packetid = client->buffer[0];
+    switch(packetid) {
+    case 0: //register - 100 byte user - 100 byte pass
+	char username[100], password[100];
+	
+	memcpy(username, &client->buffer[1], 100);
+	memcpy(password, &client->buffer[101], 100);
+	bool found = false;
+	for(auto &it: users) {
+	    if (strncmp(it.second->username, username, 100) == 0 ) {
+		found = true;
+	    }
+	}
+
+	if (found) {
+	    
+	}
+	else {
+	    createAccount(username, password);
+	}
+
+	break;
+    }
+}
+
+void receivePacket(client_t *client) {
+    if (client->headerbytes < 2) {
+	client->headerbytes += recv(client->sock, client->length.length_c + client->headerbytes, 2 - client->headerbytes, 0);
+	
+	if (client->headerbytes >= 2)
+	    client->bytesleft = ntohs(client->length.length_s);
+    }
+    else {
+        int count = recv(client->sock, client->buffer + client->bufferpointer, client->bytesleft, 0);
+	client->bytesleft -= count;
+	client->bufferpointer += count;
+
+	// got the packet
+	if (client->bytesleft <= 0) {
+	    client->bufferpointer = 0;
+	    client->headerbytes = 0;
+	    client->bytesleft = 0;
+	    processPacket(client);
+	}
+    }
+}
+
+
+
 void clientWorker(int sock) {
     char buff[1024];
+    addClient(sock);
+
     while (1) {
 	int count = recv(sock, buff, 1024, 0);
 	if (count <= 0) {
 	    perror("client disconnected");
-	    disconnectClient(sock);
 	    break;
 	}
 	else if (count > 0) {
 	    printf("received: %s\n", buff);
 	}
     }
+    disconnectClient(sock);
 }
 
 
