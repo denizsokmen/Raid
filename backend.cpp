@@ -94,7 +94,7 @@ void disconnectClient(int sock) {
 void processPacket(client_t *client) {
     char packetid = client->buffer[0];
     
-    printf("received: %s\n", client->buffer);
+    printf("received (%d): %s\n", ntohs(client->length.length_s), client->buffer);
     char asd[2] = {'a','b'};
     send(client->sock, asd, 2, 0);
     switch(packetid) {

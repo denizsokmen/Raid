@@ -9,10 +9,16 @@
 import UIKit
 
 class RegisterViewController: UITableViewController {
+    
+    var net: NetworkManager!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
     }
+    
+    @IBOutlet weak var userName: UITextField!
+    @IBOutlet weak var password: UITextField!
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -23,5 +29,8 @@ class RegisterViewController: UITableViewController {
         dismissViewControllerAnimated(true, completion: nil)
     }
     
+    @IBAction func registerClicked(sender: UIButton) {
+        
+    }
 }
 

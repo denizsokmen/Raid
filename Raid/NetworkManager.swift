@@ -8,6 +8,11 @@
 
 import Foundation
 
+extension String {
+    func length() -> Int {
+        return (self as NSString).length
+    }
+}
 
 class NetworkManager : NSObject, NSStreamDelegate {
     var inputStream: NSInputStream!
@@ -67,5 +72,21 @@ class NetworkManager : NSObject, NSStreamDelegate {
             println(eventCode.rawValue)
         }
     }
+    
+    func send(text: String) {
+        var data = UInt16(text.utf16Count).bigEndian
+        var str : String = ""
+        str.append(Character(UnicodeScalar(Int(data & 0x00ff))))
+        str.append(Character(UnicodeScalar(Int((data & 0xff00) >> 8))))
+        str += text
+        
+        var unsafedata = NSData(data: str.dataUsingEncoding(NSASCIIStringEncoding, allowLossyConversion: false)!)
+        self.outputStream.write(UnsafePointer(unsafedata.bytes), maxLength: unsafedata.length)
+        
+        
+        
+    }
+    
+    
 }
 

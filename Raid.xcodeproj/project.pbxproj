@@ -16,6 +16,8 @@
 		DFB4A46C1A41E46D004DF91A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DFB4A46B1A41E46D004DF91A /* Images.xcassets */; };
 		DFB4A46F1A41E46D004DF91A /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = DFB4A46D1A41E46D004DF91A /* LaunchScreen.xib */; };
 		DFB4A47B1A41E46E004DF91A /* RaidTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFB4A47A1A41E46E004DF91A /* RaidTests.swift */; };
+		DFCBE8D21A49F78F003FAB9A /* BugViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFCBE8D11A49F78F003FAB9A /* BugViewController.swift */; };
+		DFCBE8D41A49F99B003FAB9A /* BugCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFCBE8D31A49F99B003FAB9A /* BugCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -42,6 +44,8 @@
 		DFB4A4741A41E46E004DF91A /* RaidTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RaidTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		DFB4A4791A41E46E004DF91A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		DFB4A47A1A41E46E004DF91A /* RaidTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RaidTests.swift; sourceTree = "<group>"; };
+		DFCBE8D11A49F78F003FAB9A /* BugViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BugViewController.swift; sourceTree = "<group>"; };
+		DFCBE8D31A49F99B003FAB9A /* BugCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BugCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -100,6 +104,8 @@
 				DFB4A4621A41E46D004DF91A /* Supporting Files */,
 				DF2C254E1A43032E009568FF /* NetworkManager.swift */,
 				DF2800531A49CE0300B216E6 /* RegisterViewController.swift */,
+				DFCBE8D11A49F78F003FAB9A /* BugViewController.swift */,
+				DFCBE8D31A49F99B003FAB9A /* BugCell.swift */,
 			);
 			path = Raid;
 			sourceTree = "<group>";
@@ -231,8 +237,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				DF2C254F1A43032E009568FF /* NetworkManager.swift in Sources */,
+				DFCBE8D21A49F78F003FAB9A /* BugViewController.swift in Sources */,
 				DFB4A4671A41E46D004DF91A /* ViewController.swift in Sources */,
 				DFB4A4651A41E46D004DF91A /* AppDelegate.swift in Sources */,
+				DFCBE8D41A49F99B003FAB9A /* BugCell.swift in Sources */,
 				DF2800541A49CE0300B216E6 /* RegisterViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

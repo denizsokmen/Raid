@@ -39,7 +39,7 @@
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <segue destination="8fe-tL-MMK" kind="show" id="BY1-cM-Lp7"/>
+                                    <segue destination="8fe-tL-MMK" kind="show" identifier="register" id="BY1-cM-Lp7"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -148,7 +148,8 @@
                                                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                                     </state>
                                                     <connections>
-                                                        <segue destination="th6-ln-iVd" kind="show" id="EnZ-zq-lSx"/>
+                                                        <action selector="registerClicked:" destination="8fe-tL-MMK" eventType="touchUpInside" id="lt8-Rf-ibh"/>
+                                                        <segue destination="th6-ln-iVd" kind="show" id="pDn-6w-4QL"/>
                                                     </connections>
                                                 </button>
                                             </subviews>
@@ -193,6 +194,10 @@
                             <outlet property="delegate" destination="8fe-tL-MMK" id="xrn-U0-Txe"/>
                         </connections>
                     </tableView>
+                    <connections>
+                        <outlet property="password" destination="kWC-av-0ed" id="0AO-3x-ink"/>
+                        <outlet property="userName" destination="mYX-YB-84V" id="FUv-lc-FTs"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="yzH-HN-H9l" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -220,7 +225,7 @@
         <!--Heh-->
         <scene sceneID="4cV-jb-4Py">
             <objects>
-                <viewController title="Heh" id="u4K-bg-Boy" sceneMemberID="viewController">
+                <viewController title="Heh" id="u4K-bg-Boy" customClass="BugViewController" customModule="Raid" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="3y1-XT-r2c"/>
                         <viewControllerLayoutGuide type="bottom" id="bar-CZ-qVz"/>
@@ -233,14 +238,35 @@
                                 <rect key="frame" x="16" y="28" width="568" height="515"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="K8q-xb-T5M">
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="tableViewCell" id="K8q-xb-T5M" customClass="BugCell" customModule="Raid" customModuleProvider="target">
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="K8q-xb-T5M" id="WtD-LO-NZI">
                                             <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aHc-73-ehE">
+                                                    <rect key="frame" x="8" y="8" width="552" height="27"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="aHc-73-ehE" firstAttribute="leading" secondItem="WtD-LO-NZI" secondAttribute="leadingMargin" id="8Fx-Mh-X7N"/>
+                                                <constraint firstItem="aHc-73-ehE" firstAttribute="trailing" secondItem="WtD-LO-NZI" secondAttribute="trailingMargin" id="NWS-z8-pBq"/>
+                                                <constraint firstItem="aHc-73-ehE" firstAttribute="top" secondItem="WtD-LO-NZI" secondAttribute="topMargin" id="XaA-gq-kiT"/>
+                                                <constraint firstItem="aHc-73-ehE" firstAttribute="bottom" secondItem="WtD-LO-NZI" secondAttribute="bottomMargin" id="vZw-8t-J7Y"/>
+                                            </constraints>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="title" destination="aHc-73-ehE" id="c9J-Xm-JkA"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                                 <sections/>
+                                <connections>
+                                    <outlet property="dataSource" destination="u4K-bg-Boy" id="H93-Iy-9ED"/>
+                                    <outlet property="delegate" destination="u4K-bg-Boy" id="bCr-eL-SBr"/>
+                                </connections>
                             </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -252,10 +278,13 @@
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Bugs" id="BBz-Vt-VDt"/>
+                    <connections>
+                        <outlet property="tableView" destination="jWL-wg-GBk" id="uNO-sC-edg"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cFP-wW-cCf" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1866" y="796"/>
+            <point key="canvasLocation" x="1866" y="793"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="hmO-Qs-t5Q">
