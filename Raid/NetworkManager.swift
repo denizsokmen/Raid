@@ -9,9 +9,18 @@
 import Foundation
 
 
-class NetworkManager {
+class NetworkManager : NSObject, NSStreamDelegate {
+    var inputStream: NSInputStream!
+    var outputStream: NSOutputStream!
+    var buffer: UnsafeMutablePointer<UInt8>!
+    var bufferOffset = size_t()
+    var bufferLimit = size_t()
+ 
+   
     
-    init() {
+    func connect() {
+        buffer = UnsafeMutablePointer<UInt8>.alloc(100)
+        buffer[0] = 2
         let addr = "127.0.0.1"
         let port = 9999
         
@@ -20,18 +29,43 @@ class NetworkManager {
         
         NSStream.getStreamsToHostWithName(addr, port: port, inputStream: &inp, outputStream: &out)
         
-        let inputStream = inp!
-        let outputStream = out!
-        inputStream.open()
-        outputStream.open()
+        self.inputStream = inp!
+        self.outputStream = out!
+        self.inputStream.delegate = self;
+        self.outputStream.delegate = self;
+        
+        self.inputStream.scheduleInRunLoop(NSRunLoop.currentRunLoop(), forMode: NSDefaultRunLoopMode)
+        self.outputStream.scheduleInRunLoop(NSRunLoop.currentRunLoop(), forMode: NSDefaultRunLoopMode)
+        
+        self.inputStream.open()
+        self.outputStream.open()
         
         /*var readByte :UInt8 = 0
         while inputStream.hasBytesAvailable {
             inputStream.read(&readByte, maxLength: 1)
         }*/
         
-        let buffer:[UInt8] = [0x64, 0x65]
-        outputStream.write(buffer, maxLength: buffer.count)
+        //let buffer:[UInt8] = [0x64, 0x65]
+        //outputStream.write(buffer, maxLength: buffer.count)
+        let buff:[UInt8] = [0x0, 0x3, 0x64, 0x65, 0x50]
+        let buf = NSString(CString: "asd", encoding: NSASCIIStringEncoding)
+        
+        outputStream.write(buff, maxLength: buff.count)
+    }
+    
+    func stream(stream: NSStream, handleEvent eventCode: NSStreamEvent) {
+        switch(eventCode) {
+        case NSStreamEvent.HasBytesAvailable:
+            println("Something received")
+            break;
+     
+            
+        case NSStreamEvent.OpenCompleted:
+            println("Connection complete")
+            
+        default:
+            println(eventCode.rawValue)
+        }
     }
 }
 

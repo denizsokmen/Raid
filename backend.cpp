@@ -93,6 +93,10 @@ void disconnectClient(int sock) {
 
 void processPacket(client_t *client) {
     char packetid = client->buffer[0];
+    
+    printf("received: %s\n", client->buffer);
+    char asd[2] = {'a','b'};
+    send(client->sock, asd, 2, 0);
     switch(packetid) {
     case 0: //register - 100 byte user - 100 byte pass
 	char username[100], password[100];
@@ -114,18 +118,26 @@ void processPacket(client_t *client) {
 	}
 
 	break;
+   
     }
 }
 
-void receivePacket(client_t *client) {
+int receivePacket(client_t *client) {
     if (client->headerbytes < 2) {
-	client->headerbytes += recv(client->sock, client->length.length_c + client->headerbytes, 2 - client->headerbytes, 0);
+	int count= recv(client->sock, client->length.length_c + client->headerbytes, 2 - client->headerbytes, 0);
+        if (count <= 0)
+            return -1;
 	
+        client->headerbytes += count;
 	if (client->headerbytes >= 2)
 	    client->bytesleft = ntohs(client->length.length_s);
+        
+        return 1;
     }
     else {
         int count = recv(client->sock, client->buffer + client->bufferpointer, client->bytesleft, 0);
+        if (count <= 0)
+            return -1;
 	client->bytesleft -= count;
 	client->bufferpointer += count;
 
@@ -134,8 +146,11 @@ void receivePacket(client_t *client) {
 	    client->bufferpointer = 0;
 	    client->headerbytes = 0;
 	    client->bytesleft = 0;
+        client->buffer[2047] = '\0';
 	    processPacket(client);
+        
 	}
+        return 1;
     }
 }
 
@@ -146,14 +161,13 @@ void clientWorker(int sock) {
     addClient(sock);
 
     while (1) {
-	int count = recv(sock, buff, 1024, 0);
+    int count = receivePacket(clients[sock]);
+	//int count = recv(sock, buff, 1024, 0);
 	if (count <= 0) {
 	    perror("client disconnected");
 	    break;
 	}
-	else if (count > 0) {
-	    printf("received: %s\n", buff);
-	}
+	
     }
     disconnectClient(sock);
 }
