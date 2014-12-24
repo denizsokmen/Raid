@@ -406,6 +406,15 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Description" translatesAutoresizingMaskIntoConstraints="NO" id="KJQ-K3-j2D">
+                                <rect key="frame" x="16" y="316" width="568" height="128"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="128" id="3Q2-gD-OCo"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
                             <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="ViX-I4-bwx">
                                 <rect key="frame" x="16" y="110" width="568" height="29"/>
                                 <segments>
@@ -414,31 +423,31 @@
                                     <segment title="High"/>
                                 </segments>
                             </segmentedControl>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Description" translatesAutoresizingMaskIntoConstraints="NO" id="KJQ-K3-j2D">
-                                <rect key="frame" x="16" y="316" width="568" height="128"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="128" id="few-qS-hHf"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                            </textView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gRh-j6-rJF">
+                                <rect key="frame" x="16" y="452" width="568" height="30"/>
+                                <state key="normal" title="Done">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="KJQ-K3-j2D" firstAttribute="top" secondItem="RDM-K2-5SP" secondAttribute="bottom" constant="8" id="0og-wq-Bc1"/>
-                            <constraint firstItem="KJQ-K3-j2D" firstAttribute="trailing" secondItem="P3r-Yr-cab" secondAttribute="trailingMargin" id="4iU-SS-adZ"/>
-                            <constraint firstItem="RDM-K2-5SP" firstAttribute="trailing" secondItem="P3r-Yr-cab" secondAttribute="trailingMargin" id="7rA-3e-5mX"/>
-                            <constraint firstItem="ViX-I4-bwx" firstAttribute="top" secondItem="PUy-1G-xeM" secondAttribute="bottom" constant="8" id="9jb-UR-3Ij"/>
-                            <constraint firstItem="PUy-1G-xeM" firstAttribute="top" secondItem="KIl-QN-4km" secondAttribute="bottom" constant="8" id="Asq-vi-wTs"/>
-                            <constraint firstItem="KJQ-K3-j2D" firstAttribute="leading" secondItem="P3r-Yr-cab" secondAttribute="leadingMargin" id="Eqk-cD-Zce"/>
-                            <constraint firstItem="PUy-1G-xeM" firstAttribute="trailing" secondItem="P3r-Yr-cab" secondAttribute="trailingMargin" id="GKs-FR-VD8"/>
-                            <constraint firstItem="Rj0-3W-tl9" firstAttribute="top" secondItem="KJQ-K3-j2D" secondAttribute="bottom" constant="156" id="GXU-Bl-0DM"/>
-                            <constraint firstItem="ViX-I4-bwx" firstAttribute="leading" secondItem="P3r-Yr-cab" secondAttribute="leadingMargin" id="LCX-MP-wXf"/>
-                            <constraint firstItem="PUy-1G-xeM" firstAttribute="leading" secondItem="P3r-Yr-cab" secondAttribute="leadingMargin" id="dsE-bC-dXo"/>
-                            <constraint firstItem="ViX-I4-bwx" firstAttribute="trailing" secondItem="P3r-Yr-cab" secondAttribute="trailingMargin" id="hli-5u-FCY"/>
-                            <constraint firstItem="RDM-K2-5SP" firstAttribute="top" secondItem="ViX-I4-bwx" secondAttribute="bottom" constant="8" id="pDQ-qN-BmQ"/>
-                            <constraint firstItem="RDM-K2-5SP" firstAttribute="leading" secondItem="P3r-Yr-cab" secondAttribute="leadingMargin" id="ysY-42-xId"/>
+                            <constraint firstItem="PUy-1G-xeM" firstAttribute="leading" secondItem="P3r-Yr-cab" secondAttribute="leadingMargin" id="19A-gp-bdW"/>
+                            <constraint firstItem="KJQ-K3-j2D" firstAttribute="top" secondItem="RDM-K2-5SP" secondAttribute="bottom" constant="8" id="Ajl-Aa-sQm"/>
+                            <constraint firstItem="PUy-1G-xeM" firstAttribute="trailing" secondItem="P3r-Yr-cab" secondAttribute="trailingMargin" id="DMb-Qv-EP3"/>
+                            <constraint firstItem="RDM-K2-5SP" firstAttribute="top" secondItem="ViX-I4-bwx" secondAttribute="bottom" constant="8" id="McD-qO-Par"/>
+                            <constraint firstItem="gRh-j6-rJF" firstAttribute="top" secondItem="KJQ-K3-j2D" secondAttribute="bottom" constant="8" id="Nki-SJ-EZL"/>
+                            <constraint firstItem="Rj0-3W-tl9" firstAttribute="top" secondItem="gRh-j6-rJF" secondAttribute="bottom" constant="118" id="QNi-wJ-SAM"/>
+                            <constraint firstItem="PUy-1G-xeM" firstAttribute="top" secondItem="KIl-QN-4km" secondAttribute="bottom" constant="8" id="X7r-DB-k1p"/>
+                            <constraint firstItem="ViX-I4-bwx" firstAttribute="leading" secondItem="P3r-Yr-cab" secondAttribute="leadingMargin" id="b2D-sA-KBW"/>
+                            <constraint firstItem="ViX-I4-bwx" firstAttribute="top" secondItem="PUy-1G-xeM" secondAttribute="bottom" constant="8" id="hpx-zU-FEg"/>
+                            <constraint firstItem="gRh-j6-rJF" firstAttribute="leading" secondItem="P3r-Yr-cab" secondAttribute="leadingMargin" id="iWy-ZB-yQK"/>
+                            <constraint firstItem="RDM-K2-5SP" firstAttribute="trailing" secondItem="P3r-Yr-cab" secondAttribute="trailingMargin" id="iX1-VF-mMl"/>
+                            <constraint firstItem="KJQ-K3-j2D" firstAttribute="trailing" secondItem="P3r-Yr-cab" secondAttribute="trailingMargin" id="pdk-7n-dcs"/>
+                            <constraint firstItem="ViX-I4-bwx" firstAttribute="trailing" secondItem="P3r-Yr-cab" secondAttribute="trailingMargin" id="pfx-1N-zX5"/>
+                            <constraint firstItem="gRh-j6-rJF" firstAttribute="trailing" secondItem="P3r-Yr-cab" secondAttribute="trailingMargin" id="sv2-83-opm"/>
+                            <constraint firstItem="RDM-K2-5SP" firstAttribute="leading" secondItem="P3r-Yr-cab" secondAttribute="leadingMargin" id="tnV-zj-bjQ"/>
+                            <constraint firstItem="KJQ-K3-j2D" firstAttribute="leading" secondItem="P3r-Yr-cab" secondAttribute="leadingMargin" id="zqX-kb-6yF"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Add Bug" id="bZO-he-Hfx"/>
