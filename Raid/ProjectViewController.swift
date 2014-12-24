@@ -1,4 +1,12 @@
 //
+//  ProjectViewController.swift
+//  Raid
+//
+//  Created by student7 on 24/12/14.
+//  Copyright (c) 2014 student7. All rights reserved.
+//
+
+//
 //  BugViewController.swift
 //  Raid
 //
@@ -8,12 +16,11 @@
 
 import UIKit
 
-class BugViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class ProjectViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     var net: NetworkManager!
     
     
     @IBOutlet weak var tableView: UITableView!
-    
     func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         return 4
     }
@@ -26,7 +33,7 @@ class BugViewController: UIViewController, UITableViewDelegate, UITableViewDataS
         let deptIndex = indexPath.section
         let memberIndex = indexPath.item
         
-        let cell = tableView.dequeueReusableCellWithIdentifier("tableViewCell") as BugCell
+        let cell = tableView.dequeueReusableCellWithIdentifier("tableViewCell") as ProjectCell
         cell.title.text = "Hob"
         
         return cell
@@ -39,7 +46,7 @@ class BugViewController: UIViewController, UITableViewDelegate, UITableViewDataS
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         let deptIndex = indexPath.section
         let memberIndex = indexPath.item
-
+        
         let cell = tableView.cellForRowAtIndexPath(indexPath)
         cell?.selected = false
     }
@@ -50,7 +57,7 @@ class BugViewController: UIViewController, UITableViewDelegate, UITableViewDataS
     func tableView(tableView: UITableView!, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath!) {
         
     }
-
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
