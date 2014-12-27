@@ -62,6 +62,9 @@ class BugViewController: UIViewController, UITableViewDelegate, UITableViewDataS
     }
     
     
+    @IBAction func projectsClicked(sender: AnyObject) {
+        dismissViewControllerAnimated(true, completion: nil)
+    }
     
     
 }
