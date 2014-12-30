@@ -14,8 +14,9 @@ class BugReport {
     var priority: Int!
     var solved: Bool!
     
-    init(nm : String) {
+    init(nm : String, prio: Int) {
         title = nm
+        priority = prio
     }
     
     

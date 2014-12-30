@@ -16,6 +16,12 @@ class BugViewController: UIViewController, UITableViewDelegate, UITableViewDataS
     @IBOutlet weak var tableView: UITableView!
     
     
+    @IBAction func indexChanged(sender: UISegmentedControl) {
+        if (sender.selectedSegmentIndex == 1) {
+            project.bugs.sort({$0.priority > $1.priority})
+            tableView.reloadData()
+        }
+    }
     
     func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         return 1
@@ -35,7 +41,10 @@ class BugViewController: UIViewController, UITableViewDelegate, UITableViewDataS
         cell.title.text = bug.title
         cell.bugid.text = "SOC-1"
         cell.assignee.text = "Hakan Taşıyan"
-        cell.backgroundColor = UIColor(red: 1.0, green: 1.0, blue: 0.0, alpha: 1.0)
+        let color: CGFloat = CGFloat(bug.priority) / 5.0
+        println(color)
+        
+        cell.backgroundColor = UIColor(red: color, green: 1-color, blue: 0.0, alpha: 1.0)
         
         return cell
     }

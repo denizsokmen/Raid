@@ -357,6 +357,9 @@
                                     <segment title="Assigned to me"/>
                                     <segment title="My Reports"/>
                                 </segments>
+                                <connections>
+                                    <action selector="indexChanged:" destination="u4K-bg-Boy" eventType="valueChanged" id="yX6-ef-4tH"/>
+                                </connections>
                             </segmentedControl>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="60" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="jWL-wg-GBk">
                                 <rect key="frame" x="0.0" y="100" width="600" height="451"/>
