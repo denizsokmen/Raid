@@ -18,15 +18,16 @@ import UIKit
 
 class ProjectViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     var net: NetworkManager!
+    var projects: [Project]!
     
     
     @IBOutlet weak var tableView: UITableView!
     func numberOfSectionsInTableView(tableView: UITableView) -> Int {
-        return 4
+        return 1
     }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 1
+        return projects.count
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
@@ -34,7 +35,8 @@ class ProjectViewController: UIViewController, UITableViewDelegate, UITableViewD
         let memberIndex = indexPath.item
         
         let cell = tableView.dequeueReusableCellWithIdentifier("tableViewCell") as ProjectCell
-        cell.title.text = "Hob"
+        let project = projects[memberIndex]
+        cell.title.text = project.name
         
         return cell
     }
@@ -61,6 +63,10 @@ class ProjectViewController: UIViewController, UITableViewDelegate, UITableViewD
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        projects = []
+        let project = Project(nm:"wow")
+        project.bugs.append(BugReport(nm:"Very critical"))
+        projects.append(project)
     }
     
     override func didReceiveMemoryWarning() {
@@ -68,6 +74,16 @@ class ProjectViewController: UIViewController, UITableViewDelegate, UITableViewD
         // Dispose of any resources that can be recreated.
     }
     
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if (segue.identifier == "project") {
+            let cell = sender as ProjectCell
+            let indexPath = tableView.indexPathForCell(cell)
+            let project = projects[indexPath!.item]
+            let memberVC = segue.destinationViewController as ProjectTabController
+            memberVC.project = project
+
+        }
+    }
     
     
     

@@ -12,5 +12,10 @@ class Project {
     var bugs: [BugReport]!
     var name: String!
     
+    init(nm : String) {
+        bugs = []
+        name = nm
+    }
     
 }
+

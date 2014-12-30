@@ -11,4 +11,8 @@ import UIKit
 class BugCell: UITableViewCell {
     
     @IBOutlet weak var title: UILabel!
+    @IBOutlet weak var assignee: UILabel!
+    @IBOutlet weak var bugid: UILabel!
+    
+    
 }

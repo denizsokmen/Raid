@@ -12,11 +12,12 @@ class BugReport {
     var description: String!
     var title: String!
     var priority: Int!
+    var solved: Bool!
     
-    
-    init() {
-        
+    init(nm : String) {
+        title = nm
     }
     
     
 }
+

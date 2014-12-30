@@ -212,10 +212,10 @@
             </objects>
             <point key="canvasLocation" x="169" y="1308"/>
         </scene>
-        <!--Heheheh-->
+        <!--Projects-->
         <scene sceneID="vry-UY-h0a">
             <objects>
-                <viewController title="Heheheh" id="eQp-ce-dDp" customClass="ProjectViewController" customModule="Raid" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="Projects" id="eQp-ce-dDp" customClass="ProjectViewController" customModule="Raid" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="0it-q0-qvv"/>
                         <viewControllerLayoutGuide type="bottom" id="QPV-vI-lIP"/>
@@ -249,7 +249,7 @@
                                         </tableViewCellContentView>
                                         <connections>
                                             <outlet property="title" destination="oKT-Ap-GuZ" id="7Df-sT-4ZG"/>
-                                            <segue destination="zgF-KX-8WY" kind="showDetail" id="Nae-fe-AGw"/>
+                                            <segue destination="zgF-KX-8WY" kind="showDetail" identifier="project" id="Nae-fe-AGw"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -265,7 +265,7 @@
                     <navigationItem key="navigationItem" title="Project List" id="NX9-HY-5Sy">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="OmP-P1-sSr">
                             <connections>
-                                <segue destination="igD-cY-Xkj" kind="show" id="Re7-ni-OsW"/>
+                                <segue destination="igD-cY-Xkj" kind="show" identifier="addProject" id="Re7-ni-OsW"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -303,13 +303,12 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="Zas-FA-5Ae" firstAttribute="top" secondItem="a4n-yy-Fsc" secondAttribute="bottom" constant="8" id="1Lp-r1-M4S"/>
-                            <constraint firstItem="qJI-Wy-5lu" firstAttribute="top" secondItem="Zas-FA-5Ae" secondAttribute="bottom" constant="460" id="CsL-ZK-F7U"/>
-                            <constraint firstItem="Zas-FA-5Ae" firstAttribute="leading" secondItem="viO-mU-zOq" secondAttribute="leadingMargin" id="W3I-wc-EhX"/>
-                            <constraint firstItem="Zas-FA-5Ae" firstAttribute="trailing" secondItem="viO-mU-zOq" secondAttribute="trailingMargin" id="XTB-lf-c7E"/>
-                            <constraint firstItem="a4n-yy-Fsc" firstAttribute="trailing" secondItem="viO-mU-zOq" secondAttribute="trailingMargin" id="Y4f-FL-WuB"/>
-                            <constraint firstItem="a4n-yy-Fsc" firstAttribute="leading" secondItem="viO-mU-zOq" secondAttribute="leadingMargin" id="m8m-WC-V0B"/>
-                            <constraint firstItem="a4n-yy-Fsc" firstAttribute="top" secondItem="WhN-pq-NGN" secondAttribute="bottom" constant="8" id="rgN-6q-GtS"/>
+                            <constraint firstItem="a4n-yy-Fsc" firstAttribute="leading" secondItem="viO-mU-zOq" secondAttribute="leadingMargin" id="00e-Je-6ZV"/>
+                            <constraint firstItem="Zas-FA-5Ae" firstAttribute="leading" secondItem="viO-mU-zOq" secondAttribute="leadingMargin" id="G1U-8Y-8cf"/>
+                            <constraint firstItem="a4n-yy-Fsc" firstAttribute="trailing" secondItem="viO-mU-zOq" secondAttribute="trailingMargin" id="RWU-gN-uvO"/>
+                            <constraint firstItem="Zas-FA-5Ae" firstAttribute="trailing" secondItem="viO-mU-zOq" secondAttribute="trailingMargin" id="VMj-8r-OZG"/>
+                            <constraint firstItem="Zas-FA-5Ae" firstAttribute="top" secondItem="a4n-yy-Fsc" secondAttribute="bottom" constant="8" id="WNd-lE-sIM"/>
+                            <constraint firstItem="a4n-yy-Fsc" firstAttribute="top" secondItem="WhN-pq-NGN" secondAttribute="bottom" constant="8" id="hpZ-Do-nKi"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Add Project" id="iWo-bq-TSW"/>
@@ -350,30 +349,56 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="jWL-wg-GBk">
-                                <rect key="frame" x="0.0" y="0.0" width="600" height="551"/>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="H3V-IP-g0g">
+                                <rect key="frame" x="0.0" y="64" width="600" height="29"/>
+                                <segments>
+                                    <segment title="Unresolved"/>
+                                    <segment title="Resolved"/>
+                                    <segment title="Assigned to me"/>
+                                    <segment title="My Reports"/>
+                                </segments>
+                            </segmentedControl>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="60" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="jWL-wg-GBk">
+                                <rect key="frame" x="0.0" y="100" width="600" height="451"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="tableViewCell" id="K8q-xb-T5M" customClass="BugCell" customModule="Raid" customModuleProvider="target">
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="tableViewCell" rowHeight="60" id="K8q-xb-T5M" customClass="BugCell" customModule="Raid" customModuleProvider="target">
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="K8q-xb-T5M" id="WtD-LO-NZI">
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ODv-ut-ePB">
+                                                    <rect key="frame" x="556" y="8" width="36" height="17"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wBV-Yb-rDw">
+                                                    <rect key="frame" x="8" y="8" width="36" height="17"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aHc-73-ehE">
-                                                    <rect key="frame" x="8" y="8" width="584" height="27"/>
+                                                    <rect key="frame" x="8" y="30" width="584" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstItem="aHc-73-ehE" firstAttribute="leading" secondItem="WtD-LO-NZI" secondAttribute="leadingMargin" id="8Fx-Mh-X7N"/>
-                                                <constraint firstItem="aHc-73-ehE" firstAttribute="trailing" secondItem="WtD-LO-NZI" secondAttribute="trailingMargin" id="NWS-z8-pBq"/>
-                                                <constraint firstItem="aHc-73-ehE" firstAttribute="top" secondItem="WtD-LO-NZI" secondAttribute="topMargin" id="XaA-gq-kiT"/>
-                                                <constraint firstItem="aHc-73-ehE" firstAttribute="bottom" secondItem="WtD-LO-NZI" secondAttribute="bottomMargin" id="vZw-8t-J7Y"/>
+                                                <constraint firstItem="aHc-73-ehE" firstAttribute="bottom" secondItem="WtD-LO-NZI" secondAttribute="bottomMargin" id="7sn-NN-LTB"/>
+                                                <constraint firstItem="aHc-73-ehE" firstAttribute="leading" secondItem="WtD-LO-NZI" secondAttribute="leadingMargin" id="8sK-NG-mfn"/>
+                                                <constraint firstItem="ODv-ut-ePB" firstAttribute="trailing" secondItem="WtD-LO-NZI" secondAttribute="trailingMargin" id="J8E-wv-9eI"/>
+                                                <constraint firstItem="wBV-Yb-rDw" firstAttribute="top" secondItem="WtD-LO-NZI" secondAttribute="topMargin" id="P56-0Q-x9u"/>
+                                                <constraint firstItem="ODv-ut-ePB" firstAttribute="top" secondItem="WtD-LO-NZI" secondAttribute="topMargin" id="bFt-Ja-6Lx"/>
+                                                <constraint firstItem="aHc-73-ehE" firstAttribute="trailing" secondItem="WtD-LO-NZI" secondAttribute="trailingMargin" id="m2b-Ho-RAC"/>
+                                                <constraint firstItem="wBV-Yb-rDw" firstAttribute="leading" secondItem="WtD-LO-NZI" secondAttribute="leadingMargin" id="xAK-FE-jZG"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
+                                            <outlet property="assignee" destination="ODv-ut-ePB" id="dqq-Xj-v0V"/>
+                                            <outlet property="bugid" destination="wBV-Yb-rDw" id="KN3-lc-sK0"/>
                                             <outlet property="title" destination="aHc-73-ehE" id="c9J-Xm-JkA"/>
                                         </connections>
                                     </tableViewCell>
@@ -387,10 +412,13 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="bar-CZ-qVz" firstAttribute="top" secondItem="jWL-wg-GBk" secondAttribute="bottom" id="39P-jh-LrI"/>
-                            <constraint firstItem="jWL-wg-GBk" firstAttribute="leading" secondItem="5f3-Ad-H3r" secondAttribute="leadingMargin" constant="-16" id="fJ2-d0-1nI"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="jWL-wg-GBk" secondAttribute="trailing" constant="-16" id="jaJ-NM-rud"/>
-                            <constraint firstItem="jWL-wg-GBk" firstAttribute="top" secondItem="5f3-Ad-H3r" secondAttribute="topMargin" id="nGu-Yo-9C0"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="jWL-wg-GBk" secondAttribute="trailing" constant="-16" id="Ej4-ZB-194"/>
+                            <constraint firstItem="jWL-wg-GBk" firstAttribute="leading" secondItem="5f3-Ad-H3r" secondAttribute="leadingMargin" constant="-16" id="HMn-UJ-K55"/>
+                            <constraint firstItem="H3V-IP-g0g" firstAttribute="top" secondItem="3y1-XT-r2c" secondAttribute="bottom" id="S3p-l3-H4V"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="H3V-IP-g0g" secondAttribute="trailing" constant="-16" id="Vly-Gf-iHA"/>
+                            <constraint firstItem="jWL-wg-GBk" firstAttribute="top" secondItem="H3V-IP-g0g" secondAttribute="bottom" constant="8" id="wS9-xc-3nm"/>
+                            <constraint firstItem="H3V-IP-g0g" firstAttribute="leading" secondItem="5f3-Ad-H3r" secondAttribute="leadingMargin" constant="-16" id="xIw-HO-GvY"/>
+                            <constraint firstItem="bar-CZ-qVz" firstAttribute="top" secondItem="jWL-wg-GBk" secondAttribute="bottom" id="ycX-I8-fTa"/>
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Bugs" image="202-alien.png" id="BBz-Vt-VDt"/>
@@ -500,10 +528,10 @@
             </objects>
             <point key="canvasLocation" x="3132" y="-523"/>
         </scene>
-        <!--Tab Bar Controller-->
+        <!--Project Tab Controller-->
         <scene sceneID="w6F-YB-uPM">
             <objects>
-                <tabBarController id="zgF-KX-8WY" sceneMemberID="viewController">
+                <tabBarController id="zgF-KX-8WY" customClass="ProjectTabController" customModule="Raid" customModuleProvider="target" sceneMemberID="viewController">
                     <nil key="simulatedBottomBarMetrics"/>
                     <tabBar key="tabBar" contentMode="scaleToFill" id="ujH-Ks-CvZ">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="49"/>

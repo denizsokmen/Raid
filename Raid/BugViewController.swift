@@ -10,16 +10,20 @@ import UIKit
 
 class BugViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     var net: NetworkManager!
+    var project: Project!
     
     
     @IBOutlet weak var tableView: UITableView!
     
+    
+    
     func numberOfSectionsInTableView(tableView: UITableView) -> Int {
-        return 4
+        return 1
     }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 1
+        return project.bugs.count
+        
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
@@ -27,7 +31,11 @@ class BugViewController: UIViewController, UITableViewDelegate, UITableViewDataS
         let memberIndex = indexPath.item
         
         let cell = tableView.dequeueReusableCellWithIdentifier("tableViewCell") as BugCell
-        cell.title.text = "Hob"
+        let bug = project.bugs[memberIndex]
+        cell.title.text = bug.title
+        cell.bugid.text = "SOC-1"
+        cell.assignee.text = "Hakan Taşıyan"
+        cell.backgroundColor = UIColor(red: 1.0, green: 1.0, blue: 0.0, alpha: 1.0)
         
         return cell
     }
@@ -54,6 +62,9 @@ class BugViewController: UIViewController, UITableViewDelegate, UITableViewDataS
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        let controller = self.tabBarController as ProjectTabController
+        self.project = controller.project
     }
     
     override func didReceiveMemoryWarning() {
