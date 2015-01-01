@@ -76,6 +76,7 @@ class NetworkManager : NSObject, NSStreamDelegate {
     func send(text: String) {
         var data = UInt16(text.utf16Count).bigEndian
         var str : String = ""
+        
         str.append(Character(UnicodeScalar(Int(data & 0x00ff))))
         str.append(Character(UnicodeScalar(Int((data & 0xff00) >> 8))))
         str += text
