@@ -13,10 +13,12 @@ class BugReport {
     var title: String!
     var priority: Int!
     var solved: Bool!
+    var id: Int!
     
     init(nm : String, prio: Int) {
         title = nm
         priority = prio
+        id = 1
     }
     
     

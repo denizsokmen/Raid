@@ -9,12 +9,20 @@
 import Foundation
 
 class Project {
+    var bugcounter: Int = 0
     var bugs: [BugReport]!
     var name: String!
     
     init(nm : String) {
         bugs = []
         name = nm
+    }
+    
+    func addBug(title: String, priority : Int, desc: String) {
+        var bug = BugReport(nm: title, prio: priority)
+        bug.id = bugcounter++
+        bug.description = desc
+        bugs.append(bug)
     }
     
 }

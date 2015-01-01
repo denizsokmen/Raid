@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		229EBCBE1A55754E00B2A397 /* SingleBugViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 229EBCBD1A55754E00B2A397 /* SingleBugViewController.swift */; };
 		DF2800541A49CE0300B216E6 /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF2800531A49CE0300B216E6 /* RegisterViewController.swift */; };
 		DF2C254F1A43032E009568FF /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF2C254E1A43032E009568FF /* NetworkManager.swift */; };
 		DF2FA6551A52C19100E1CA39 /* BugReport.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF2FA6541A52C19100E1CA39 /* BugReport.swift */; };
@@ -39,6 +40,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		229EBCBD1A55754E00B2A397 /* SingleBugViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SingleBugViewController.swift; sourceTree = "<group>"; };
 		DF2800531A49CE0300B216E6 /* RegisterViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
 		DF2C254E1A43032E009568FF /* NetworkManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 		DF2FA6541A52C19100E1CA39 /* BugReport.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BugReport.swift; sourceTree = "<group>"; };
@@ -130,6 +132,7 @@
 				DF2FA6541A52C19100E1CA39 /* BugReport.swift */,
 				DF2FA6561A52C81E00E1CA39 /* Project.swift */,
 				DF2FA6581A52D7B300E1CA39 /* ProjectTabController.swift */,
+				229EBCBD1A55754E00B2A397 /* SingleBugViewController.swift */,
 			);
 			path = Raid;
 			sourceTree = "<group>";
@@ -273,6 +276,7 @@
 				DF2800541A49CE0300B216E6 /* RegisterViewController.swift in Sources */,
 				DF2FA6551A52C19100E1CA39 /* BugReport.swift in Sources */,
 				DF377D8E1A4B019E0036BA61 /* AddBugViewController.swift in Sources */,
+				229EBCBE1A55754E00B2A397 /* SingleBugViewController.swift in Sources */,
 				DF2FA6591A52D7B300E1CA39 /* ProjectTabController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

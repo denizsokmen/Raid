@@ -403,7 +403,7 @@
                                             <outlet property="assignee" destination="ODv-ut-ePB" id="dqq-Xj-v0V"/>
                                             <outlet property="bugid" destination="wBV-Yb-rDw" id="KN3-lc-sK0"/>
                                             <outlet property="title" destination="aHc-73-ehE" id="c9J-Xm-JkA"/>
-                                            <segue destination="a4h-3N-nLw" kind="show" id="0Rt-nu-7dI"/>
+                                            <segue destination="3km-8V-2xO" kind="show" identifier="showbug" id="glW-zB-hCP"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -434,7 +434,7 @@
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="yGO-lS-ZuX">
                             <connections>
-                                <segue destination="2AT-5n-nWh" kind="show" id="bhy-HJ-9CB"/>
+                                <segue destination="2AT-5n-nWh" kind="show" identifier="addbug" id="bhy-HJ-9CB"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -446,23 +446,82 @@
             </objects>
             <point key="canvasLocation" x="2060" y="-523"/>
         </scene>
-        <!--OneBug-->
-        <scene sceneID="AeI-hG-1b5">
+        <!--Single Bug View Controller-->
+        <scene sceneID="eDz-Pt-6H0">
             <objects>
-                <viewController title="OneBug" id="a4h-3N-nLw" sceneMemberID="viewController">
+                <viewController id="3km-8V-2xO" customClass="SingleBugViewController" customModule="Raid" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="RJg-Ps-mob"/>
-                        <viewControllerLayoutGuide type="bottom" id="X7N-8J-98J"/>
+                        <viewControllerLayoutGuide type="top" id="or6-uV-adJ"/>
+                        <viewControllerLayoutGuide type="bottom" id="sP0-oh-IoG"/>
                     </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="aOf-06-mXk">
+                    <view key="view" contentMode="scaleToFill" id="SJn-mg-tzd">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MI8-6W-sfE">
+                                <rect key="frame" x="0.0" y="521" width="600" height="30"/>
+                                <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <state key="normal" title="Mark as Resolved">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="resolve:" destination="3km-8V-2xO" eventType="touchUpInside" id="5c8-3e-YO1"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ta9-P9-aq6">
+                                <rect key="frame" x="16" y="64" width="568" height="14"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="11"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eBC-La-BcR">
+                                <rect key="frame" x="16" y="93" width="568" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Dho-eL-mhz">
+                                <rect key="frame" x="16" y="122" width="568" height="391"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                            <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" progress="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="WOM-fo-ZRM">
+                                <rect key="frame" x="16" y="83" width="568" height="2"/>
+                            </progressView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="Dho-eL-mhz" firstAttribute="top" secondItem="eBC-La-BcR" secondAttribute="bottom" constant="8" id="97e-JI-ChM"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="MI8-6W-sfE" secondAttribute="trailing" constant="-16" id="9c1-Zt-UgZ"/>
+                            <constraint firstItem="sP0-oh-IoG" firstAttribute="top" secondItem="MI8-6W-sfE" secondAttribute="bottom" id="9zD-1Z-poJ"/>
+                            <constraint firstItem="WOM-fo-ZRM" firstAttribute="leading" secondItem="SJn-mg-tzd" secondAttribute="leadingMargin" id="H5w-Te-Cnc"/>
+                            <constraint firstItem="eBC-La-BcR" firstAttribute="leading" secondItem="SJn-mg-tzd" secondAttribute="leadingMargin" id="LA8-7I-t6H"/>
+                            <constraint firstItem="WOM-fo-ZRM" firstAttribute="top" secondItem="or6-uV-adJ" secondAttribute="bottom" constant="19" id="P8H-5Q-IKa"/>
+                            <constraint firstItem="Dho-eL-mhz" firstAttribute="trailing" secondItem="SJn-mg-tzd" secondAttribute="trailingMargin" id="YdU-KZ-GNK"/>
+                            <constraint firstItem="ta9-P9-aq6" firstAttribute="leading" secondItem="SJn-mg-tzd" secondAttribute="leadingMargin" id="bTh-Cn-vwT"/>
+                            <constraint firstItem="MI8-6W-sfE" firstAttribute="top" secondItem="Dho-eL-mhz" secondAttribute="bottom" constant="8" id="cXk-Af-5ur"/>
+                            <constraint firstItem="eBC-La-BcR" firstAttribute="trailing" secondItem="SJn-mg-tzd" secondAttribute="trailingMargin" id="dlo-ZL-LdY"/>
+                            <constraint firstItem="ta9-P9-aq6" firstAttribute="trailing" secondItem="SJn-mg-tzd" secondAttribute="trailingMargin" id="doM-0A-iTN"/>
+                            <constraint firstItem="eBC-La-BcR" firstAttribute="top" secondItem="WOM-fo-ZRM" secondAttribute="bottom" constant="8" id="i2U-CS-wu3"/>
+                            <constraint firstItem="WOM-fo-ZRM" firstAttribute="trailing" secondItem="SJn-mg-tzd" secondAttribute="trailingMargin" id="lUm-E9-V2D"/>
+                            <constraint firstItem="ta9-P9-aq6" firstAttribute="top" secondItem="or6-uV-adJ" secondAttribute="bottom" id="lwH-Vo-U8M"/>
+                            <constraint firstItem="Dho-eL-mhz" firstAttribute="leading" secondItem="SJn-mg-tzd" secondAttribute="leadingMargin" id="m4K-5y-YIG"/>
+                            <constraint firstItem="MI8-6W-sfE" firstAttribute="leading" secondItem="SJn-mg-tzd" secondAttribute="leadingMargin" constant="-16" id="u9s-Q3-f79"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="descriptionText" destination="Dho-eL-mhz" id="BTc-jN-WVo"/>
+                        <outlet property="priorityLabel" destination="ta9-P9-aq6" id="YDe-OG-p2w"/>
+                        <outlet property="progressBar" destination="WOM-fo-ZRM" id="k5G-by-uZE"/>
+                        <outlet property="titleLabel" destination="eBC-La-BcR" id="11v-RH-ZgL"/>
+                    </connections>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="wgX-bD-ngV" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="qZo-Zz-EmH" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2765" y="-523"/>
+            <point key="canvasLocation" x="2720" y="-607"/>
         </scene>
         <!--Submit Bug-->
         <scene sceneID="o6e-7U-UnA">

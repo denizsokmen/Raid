@@ -65,10 +65,8 @@ class ProjectViewController: UIViewController, UITableViewDelegate, UITableViewD
         super.viewDidLoad()
         projects = []
         let project = Project(nm:"wow")
-        project.bugs.append(BugReport(nm:"Patlıyor", prio: 4))
-        project.bugs.append(BugReport(nm:"Hatalı", prio: 2))
-        project.bugs.append(BugReport(nm:"Wow", prio: 3))
-        project.bugs.append(BugReport(nm:"hoo", prio: 5))
+        project.addBug("Crash", priority: 4, desc: "Program patliyor bla bla :(")
+        
         projects.append(project)
     }
     

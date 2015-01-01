@@ -81,7 +81,16 @@ class BugViewController: UIViewController, UITableViewDelegate, UITableViewDataS
         // Dispose of any resources that can be recreated.
     }
     
-    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if (segue.identifier == "showbug") {
+            let cell = sender as BugCell
+            let indexPath = tableView.indexPathForCell(cell)
+            let bug = project.bugs[indexPath!.item]
+            let memberVC = segue.destinationViewController as SingleBugViewController
+            memberVC.bug = bug
+            
+        }
+    }
     
     
     @IBAction func projectsClicked(sender: AnyObject) {
