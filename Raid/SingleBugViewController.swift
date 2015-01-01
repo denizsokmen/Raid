@@ -16,6 +16,7 @@ class SingleBugViewController: UIViewController {
     @IBOutlet weak var progressBar: UIProgressView!
     
     @IBOutlet weak var priorityLabel: UILabel!
+    @IBOutlet weak var resolveButton: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -38,6 +39,19 @@ class SingleBugViewController: UIViewController {
         titleLabel.text = "#" + String(bug.id) + " - " + bug.title
         descriptionText.text = bug.description
         
+    }
+    
+    override func viewWillAppear(animated: Bool) {
+        if bug.solved == true {
+            priorityLabel.text = "Resolved"
+            priorityLabel.textColor = UIColor(red: 0.2, green: 0.8, blue: 0.0, alpha: 1.0)
+            progressBar.progress = 1.0
+            progressBar.progressTintColor = UIColor(red: 0.2, green: 0.8, blue: 0.0, alpha: 1.0)
+            resolveButton.hidden = true
+        }
+        else {
+            resolveButton.hidden = false
+        }
     }
     
     @IBAction func resolve(sender: AnyObject) {

@@ -14,8 +14,8 @@ class AddProjectViewController: UIViewController {
     @IBOutlet weak var nameLabel: UITextField!
     
     @IBAction func doneClicked(sender: AnyObject) {
-        
-        Database.sharedInstance.projects.append(Project(nm: nameLabel.text))
+        var project = Project(nm: nameLabel.text)
+        Database.sharedInstance.projects.append(project)
         self.navigationController?.popToRootViewControllerAnimated(true)
         
     }

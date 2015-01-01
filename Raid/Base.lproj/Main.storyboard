@@ -531,6 +531,7 @@
                         <outlet property="descriptionText" destination="Dho-eL-mhz" id="BTc-jN-WVo"/>
                         <outlet property="priorityLabel" destination="ta9-P9-aq6" id="YDe-OG-p2w"/>
                         <outlet property="progressBar" destination="WOM-fo-ZRM" id="k5G-by-uZE"/>
+                        <outlet property="resolveButton" destination="MI8-6W-sfE" id="KFe-Eb-5Bf"/>
                         <outlet property="titleLabel" destination="eBC-La-BcR" id="11v-RH-ZgL"/>
                     </connections>
                 </viewController>
@@ -676,27 +677,89 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Bugs: 5/10" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1nU-iY-CZ4">
-                                <rect key="frame" x="16" y="64" width="568" height="12"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="10"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Project Name:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ISL-JK-m9E">
+                                <rect key="frame" x="16" y="101" width="112" height="21"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Developers:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wB9-oO-0mN">
+                                <rect key="frame" x="16" y="130" width="94" height="21"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WQY-Z7-efV">
+                                <rect key="frame" x="542" y="101" width="42" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Xy2-wU-WjL">
+                                <rect key="frame" x="542" y="130" width="42" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" progress="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="i6L-ck-itt">
-                                <rect key="frame" x="16" y="83" width="568" height="2"/>
+                                <rect key="frame" x="16" y="72" width="568" height="2"/>
                             </progressView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="S6c-m4-mao">
+                                <rect key="frame" x="16" y="72" width="568" height="17"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BCN-pf-6m8">
+                                <rect key="frame" x="16" y="159" width="568" height="30"/>
+                                <state key="normal" title="Add Member">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="addMember:" destination="MIb-qI-geJ" eventType="touchUpInside" id="V7M-By-htS"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IIa-t7-c28">
+                                <rect key="frame" x="16" y="197" width="568" height="30"/>
+                                <state key="normal" title="Leave Project">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="leaveProject:" destination="MIb-qI-geJ" eventType="touchUpInside" id="nVV-32-dVX"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="1nU-iY-CZ4" firstAttribute="top" secondItem="UCF-qD-GVD" secondAttribute="bottom" id="82y-m6-Bvq"/>
-                            <constraint firstItem="1nU-iY-CZ4" firstAttribute="leading" secondItem="8Ak-ih-heE" secondAttribute="leadingMargin" id="JLW-J9-Jkj"/>
-                            <constraint firstItem="1nU-iY-CZ4" firstAttribute="trailing" secondItem="8Ak-ih-heE" secondAttribute="trailingMargin" id="VxZ-7i-mek"/>
-                            <constraint firstItem="i6L-ck-itt" firstAttribute="trailing" secondItem="8Ak-ih-heE" secondAttribute="trailingMargin" id="dC4-Ih-kVc"/>
-                            <constraint firstItem="i6L-ck-itt" firstAttribute="leading" secondItem="8Ak-ih-heE" secondAttribute="leadingMargin" id="wWz-Wh-nSV"/>
-                            <constraint firstItem="i6L-ck-itt" firstAttribute="top" secondItem="UCF-qD-GVD" secondAttribute="bottom" constant="19" id="ykm-Ym-4EF"/>
+                            <constraint firstItem="ISL-JK-m9E" firstAttribute="top" secondItem="S6c-m4-mao" secondAttribute="bottom" constant="12" id="1BL-cC-L45"/>
+                            <constraint firstItem="IIa-t7-c28" firstAttribute="top" secondItem="BCN-pf-6m8" secondAttribute="bottom" constant="8" id="2Nh-Db-33P"/>
+                            <constraint firstItem="WQY-Z7-efV" firstAttribute="trailing" secondItem="8Ak-ih-heE" secondAttribute="trailingMargin" id="3lK-lI-G5T"/>
+                            <constraint firstItem="BCN-pf-6m8" firstAttribute="top" secondItem="Xy2-wU-WjL" secondAttribute="bottom" constant="8" id="40c-PN-ew2"/>
+                            <constraint firstItem="wB9-oO-0mN" firstAttribute="top" secondItem="WQY-Z7-efV" secondAttribute="bottom" constant="8" id="4tU-yf-PsX"/>
+                            <constraint firstItem="Xy2-wU-WjL" firstAttribute="top" secondItem="WQY-Z7-efV" secondAttribute="bottom" constant="8" id="51R-qU-4gl"/>
+                            <constraint firstItem="i6L-ck-itt" firstAttribute="top" secondItem="UCF-qD-GVD" secondAttribute="bottom" constant="8" id="HXU-PR-Mgq"/>
+                            <constraint firstItem="Xy2-wU-WjL" firstAttribute="trailing" secondItem="8Ak-ih-heE" secondAttribute="trailingMargin" id="Hzf-eI-cjL"/>
+                            <constraint firstItem="i6L-ck-itt" firstAttribute="trailing" secondItem="8Ak-ih-heE" secondAttribute="trailingMargin" id="KG2-EC-aoe"/>
+                            <constraint firstItem="S6c-m4-mao" firstAttribute="top" secondItem="UCF-qD-GVD" secondAttribute="bottom" constant="8" id="SFE-ZQ-hrP"/>
+                            <constraint firstItem="BCN-pf-6m8" firstAttribute="trailing" secondItem="8Ak-ih-heE" secondAttribute="trailingMargin" id="WKJ-SH-p0C"/>
+                            <constraint firstItem="BCN-pf-6m8" firstAttribute="leading" secondItem="8Ak-ih-heE" secondAttribute="leadingMargin" id="Z4Y-fH-JD7"/>
+                            <constraint firstItem="wB9-oO-0mN" firstAttribute="leading" secondItem="8Ak-ih-heE" secondAttribute="leadingMargin" id="ZC5-gu-2No"/>
+                            <constraint firstItem="IIa-t7-c28" firstAttribute="trailing" secondItem="8Ak-ih-heE" secondAttribute="trailingMargin" id="coX-b0-FH7"/>
+                            <constraint firstItem="ISL-JK-m9E" firstAttribute="leading" secondItem="8Ak-ih-heE" secondAttribute="leadingMargin" id="oqN-QE-Cpw"/>
+                            <constraint firstItem="i6L-ck-itt" firstAttribute="leading" secondItem="8Ak-ih-heE" secondAttribute="leadingMargin" id="pJG-pm-K1X"/>
+                            <constraint firstItem="WQY-Z7-efV" firstAttribute="top" secondItem="S6c-m4-mao" secondAttribute="bottom" constant="12" id="rDs-LO-wxX"/>
+                            <constraint firstItem="IIa-t7-c28" firstAttribute="leading" secondItem="8Ak-ih-heE" secondAttribute="leadingMargin" id="v3r-BC-JpI"/>
+                            <constraint firstItem="S6c-m4-mao" firstAttribute="leading" secondItem="8Ak-ih-heE" secondAttribute="leadingMargin" id="vRY-e3-RH0"/>
+                            <constraint firstItem="S6c-m4-mao" firstAttribute="trailing" secondItem="8Ak-ih-heE" secondAttribute="trailingMargin" id="xEv-ls-gNN"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="6YT-pX-Gqg"/>
+                    <connections>
+                        <outlet property="bugsLabel" destination="S6c-m4-mao" id="Pe5-AW-3fh"/>
+                        <outlet property="developers" destination="Xy2-wU-WjL" id="ocV-y1-SRi"/>
+                        <outlet property="progressBar" destination="i6L-ck-itt" id="YZn-0G-MIc"/>
+                        <outlet property="projectName" destination="WQY-Z7-efV" id="gyK-qH-kj6"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="DIb-Ge-R2a" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
