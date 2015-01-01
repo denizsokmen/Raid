@@ -19,6 +19,7 @@ class BugReport {
         title = nm
         priority = prio
         id = 1
+        solved = false
     }
     
     

@@ -11,16 +11,39 @@ import UIKit
 class BugViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     var net: NetworkManager!
     var project: Project!
+    var filteredBugs: [BugReport]!
     
     
     @IBOutlet weak var tableView: UITableView!
     
+    @IBOutlet weak var segmentedControl: UISegmentedControl!
     
     @IBAction func indexChanged(sender: UISegmentedControl) {
-        if (sender.selectedSegmentIndex == 1) {
+        refresh()
+    }
+    
+    func refresh() {
+        filteredBugs = []
+        
+        if (segmentedControl.selectedSegmentIndex == 0) {
+            for bug in project.bugs {
+                if (bug.solved == false) {
+                    filteredBugs.append(bug)
+                }
+            }
             project.bugs.sort({$0.priority > $1.priority})
-            tableView.reloadData()
         }
+        
+        if (segmentedControl.selectedSegmentIndex == 1) {
+            for bug in project.bugs {
+                if (bug.solved != false) {
+                    filteredBugs.append(bug)
+                }
+            }
+            project.bugs.sort({$0.priority > $1.priority})
+        }
+        
+        tableView.reloadData()
     }
     
     func numberOfSectionsInTableView(tableView: UITableView) -> Int {
@@ -28,7 +51,7 @@ class BugViewController: UIViewController, UITableViewDelegate, UITableViewDataS
     }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return project.bugs.count
+        return filteredBugs.count
         
     }
     
@@ -37,10 +60,11 @@ class BugViewController: UIViewController, UITableViewDelegate, UITableViewDataS
         let memberIndex = indexPath.item
         
         let cell = tableView.dequeueReusableCellWithIdentifier("tableViewCell") as BugCell
-        let bug = project.bugs[memberIndex]
+        let bug = filteredBugs[memberIndex]
         cell.title.text = bug.title
-        cell.bugid.text = "SOC-1"
-        cell.assignee.text = "Hakan Taşıyan"
+        let title = project.name.uppercaseString.substringToIndex(advance(project.name.uppercaseString.startIndex, 3))
+        cell.bugid.text = title + "-" + String(bug.id)
+        cell.assignee.text = "Assignee: Hakan Taşıyan"
         let color: CGFloat = CGFloat(bug.priority) / 5.0
         println(color)
         
@@ -71,9 +95,13 @@ class BugViewController: UIViewController, UITableViewDelegate, UITableViewDataS
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         let controller = self.tabBarController as ProjectTabController
         self.project = controller.project
+        refresh()
+    }
+    
+    override func viewWillAppear(animated: Bool) {
+        refresh()
     }
     
     override func didReceiveMemoryWarning() {
@@ -85,7 +113,7 @@ class BugViewController: UIViewController, UITableViewDelegate, UITableViewDataS
         if (segue.identifier == "showbug") {
             let cell = sender as BugCell
             let indexPath = tableView.indexPathForCell(cell)
-            let bug = project.bugs[indexPath!.item]
+            let bug = filteredBugs[indexPath!.item]
             let memberVC = segue.destinationViewController as SingleBugViewController
             memberVC.bug = bug
             

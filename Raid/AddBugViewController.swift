@@ -9,8 +9,10 @@
 import UIKit
 
 class AddBugViewController: UIViewController {
+    var project: Project!
     
     
+    @IBOutlet weak var titleLabel: UITextField!
     @IBOutlet weak var selector: UIPickerView!
     
     @IBOutlet weak var textView: UITextView!
@@ -18,7 +20,8 @@ class AddBugViewController: UIViewController {
         super.viewDidLoad()
         textView.layer.borderWidth = 1
         textView.layer.borderColor = UIColor.grayColor().CGColor
-        
+        let controller = self.tabBarController as ProjectTabController
+        self.project = controller.project
     }
     
     override func didReceiveMemoryWarning() {
@@ -43,6 +46,10 @@ class AddBugViewController: UIViewController {
     }
     
     // pragma MARK: UIPickerViewDelegate
+    @IBAction func doneClicked(sender: AnyObject) {
+        project.addBug(titleLabel.text, priority: 1, desc: textView.text)
+        self.navigationController?.popToRootViewControllerAnimated(true)
+    }
     
     func pickerView(pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String! {
         return "asd"

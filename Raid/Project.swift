@@ -11,10 +11,12 @@ import Foundation
 class Project {
     var bugcounter: Int = 0
     var bugs: [BugReport]!
+    var users: [User]!
     var name: String!
     
     init(nm : String) {
         bugs = []
+        users = []
         name = nm
     }
     

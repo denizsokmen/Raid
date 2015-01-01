@@ -41,7 +41,7 @@ class SingleBugViewController: UIViewController {
     }
     
     @IBAction func resolve(sender: AnyObject) {
-        //dismissViewControllerAnimated(true, completion: nil)
+        bug.solved = true
         self.navigationController?.popToRootViewControllerAnimated(true)
     }
     override func didReceiveMemoryWarning() {

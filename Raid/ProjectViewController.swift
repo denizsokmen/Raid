@@ -60,14 +60,24 @@ class ProjectViewController: UIViewController, UITableViewDelegate, UITableViewD
         
     }
     
+    func refresh() {
+        projects = []
+        
+        for project in Database.sharedInstance.projects {
+            projects.append(project)
+        }
+        
+        tableView.reloadData()
+    }
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
         projects = []
-        let project = Project(nm:"wow")
-        project.addBug("Crash", priority: 4, desc: "Program patliyor bla bla :(")
-        
-        projects.append(project)
+    }
+    
+    override func viewDidAppear(animated: Bool) {
+        refresh()
     }
     
     override func didReceiveMemoryWarning() {
