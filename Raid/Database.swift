@@ -23,6 +23,23 @@ class Database {
     
     var users: [User] = []
     var projects: [Project] = []
+    var currentUser: User! = nil
+    var userCounter: Int = 0
     
+    func addUser(user: String, pass: String) {
+        let usr = User(user: user, pass: pass)
+        usr.id = userCounter++
+    }
+    
+    func auth(user: String, pass: String) -> Bool{
+        for usr in users {
+            if usr.username == user && usr.password == pass {
+                currentUser = usr
+                return true
+            }
+        }
+        
+        return false
+    }
     
 }

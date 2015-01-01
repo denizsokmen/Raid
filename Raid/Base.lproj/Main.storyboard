@@ -42,7 +42,7 @@
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <segue destination="4pe-Bq-iSR" kind="show" id="HXd-kV-A3k"/>
+                                    <action selector="loginClicked:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="dZh-wn-6uE"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jGw-Yd-isR">
@@ -74,6 +74,10 @@
                             <constraint firstItem="jGw-Yd-isR" firstAttribute="top" secondItem="LFb-lK-Uto" secondAttribute="bottom" constant="8" id="zYd-Ee-Gym"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="password" destination="G3F-Yn-fy1" id="Z2N-O5-KAV"/>
+                        <outlet property="username" destination="l4u-bU-HQJ" id="Z6B-IP-Wga"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
             </objects>
@@ -768,7 +772,7 @@
         <!--Projects-->
         <scene sceneID="8Xf-6f-oyD">
             <objects>
-                <navigationController id="4pe-Bq-iSR" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="Main" useStoryboardIdentifierAsRestorationIdentifier="YES" id="4pe-Bq-iSR" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Projects" image="33-cabinet.png" id="pfW-lS-W4R"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="SLz-uo-Zfq">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>

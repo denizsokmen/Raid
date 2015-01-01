@@ -30,7 +30,9 @@ class RegisterViewController: UITableViewController {
     }
     
     @IBAction func registerClicked(sender: UIButton) {
+        Database.sharedInstance.addUser(userName.text, pass: password.text)
         
+        dismissViewControllerAnimated(true, completion: nil)
     }
 }
 

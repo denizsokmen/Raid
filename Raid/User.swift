@@ -10,6 +10,13 @@ import Foundation
 
 class User {
     var isStaff: Bool = false
+    var username: String!
+    var password: String!
+    var id: Int!
     
+    init(user: String, pass: String) {
+        username = user
+        password = pass
+    }
     
 }
