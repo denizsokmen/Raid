@@ -21,6 +21,18 @@ class ViewController: UIViewController {
         net = NetworkManager()
         net.connect()
         net.send("asdsadd")
+        
+        let userDefaults = NSUserDefaults.standardUserDefaults()
+        if let defaultItems = userDefaults.dataForKey("database") {
+            
+            Database.sharedInstance.load()
+        }
+        else {
+            
+            Database.sharedInstance.save()
+            
+        }
+        
     }
     @IBAction func loginClicked(sender: AnyObject) {
         mainSegue()
@@ -28,6 +40,7 @@ class ViewController: UIViewController {
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
+        
         // Dispose of any resources that can be recreated.
     }
     

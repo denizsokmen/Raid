@@ -15,7 +15,7 @@ class AddProjectViewController: UIViewController {
     
     @IBAction func doneClicked(sender: AnyObject) {
         var project = Project(nm: nameLabel.text)
-        Database.sharedInstance.projects.append(project)
+        Database.sharedInstance.addProject(project)
         self.navigationController?.popToRootViewControllerAnimated(true)
         
     }

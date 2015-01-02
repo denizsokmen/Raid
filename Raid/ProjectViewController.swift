@@ -78,6 +78,7 @@ class ProjectViewController: UIViewController, UITableViewDelegate, UITableViewD
     
     override func viewDidAppear(animated: Bool) {
         refresh()
+        Database.sharedInstance.save()
     }
     
     override func didReceiveMemoryWarning() {

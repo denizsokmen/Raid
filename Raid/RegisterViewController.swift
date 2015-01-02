@@ -30,9 +30,17 @@ class RegisterViewController: UITableViewController {
     }
     
     @IBAction func registerClicked(sender: UIButton) {
-        Database.sharedInstance.addUser(userName.text, pass: password.text)
-        
-        dismissViewControllerAnimated(true, completion: nil)
+        if userName.text.length() < 2 || password.text.length() < 2 {
+            var alert = UIAlertView()
+            alert.title = "Error"
+            alert.message = "Your username or password must at least have 2 characters."
+            alert.addButtonWithTitle("OK")
+            alert.show()
+        }
+        else {
+            Database.sharedInstance.addUser(userName.text, pass: password.text)
+            dismissViewControllerAnimated(true, completion: nil)
+        }
     }
 }
 

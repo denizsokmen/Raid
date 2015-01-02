@@ -22,6 +22,20 @@ class BugReport {
         solved = false
     }
     
+    init(dict : [String:AnyObject]) {
+        self.description = dict["desc"] as String
+        self.title = dict["title"] as String
+        self.priority = dict["priority"] as Int
+        self.id = dict["id"] as Int
+        self.solved = dict["solved"] as Bool
+    }
+    
+    func convertToDict() -> [String: AnyObject] {
+        
+        var dict : [String: AnyObject] = ["desc": self.description, "title": self.title, "solved": self.solved, "id": self.id, "priority": self.priority]
+        
+        return dict
+    }
     
 }
 

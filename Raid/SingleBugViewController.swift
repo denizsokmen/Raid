@@ -52,6 +52,8 @@ class SingleBugViewController: UIViewController {
         else {
             resolveButton.hidden = false
         }
+        
+        Database.sharedInstance.save()
     }
     
     @IBAction func resolve(sender: AnyObject) {
