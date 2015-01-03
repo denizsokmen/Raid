@@ -20,6 +20,11 @@ class ProjectDetailsViewController: UIViewController {
     }
     
     @IBAction func leaveProject(sender: AnyObject) {
+        
+        if let index = find(project.users, Database.sharedInstance.currentUser.id) {
+            project.users.removeAtIndex(index)
+        }
+        dismissViewControllerAnimated(true, completion: nil)
     }
     
     override func viewDidLoad() {

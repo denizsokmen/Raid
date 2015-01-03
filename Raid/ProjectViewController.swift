@@ -20,7 +20,13 @@ class ProjectViewController: UIViewController, UITableViewDelegate, UITableViewD
     var net: NetworkManager!
     var projects: [Project]!
     
+    @IBOutlet weak var logout: UIBarButtonItem!
     
+    @IBAction func logoutClicked(sender: AnyObject) {
+        
+        Database.sharedInstance.currentUser = nil
+        dismissViewControllerAnimated(true, completion: nil)
+    }
     @IBOutlet weak var tableView: UITableView!
     func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         return 1
@@ -64,7 +70,9 @@ class ProjectViewController: UIViewController, UITableViewDelegate, UITableViewD
         projects = []
         
         for project in Database.sharedInstance.projects {
-            projects.append(project)
+            if contains(project.users, Database.sharedInstance.currentUser.id) {
+                projects.append(project)
+            }
         }
         
         tableView.reloadData()

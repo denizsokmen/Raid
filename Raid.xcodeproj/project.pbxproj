@@ -10,6 +10,7 @@
 		229EBCBE1A55754E00B2A397 /* SingleBugViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 229EBCBD1A55754E00B2A397 /* SingleBugViewController.swift */; };
 		229EBCC01A55883C00B2A397 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 229EBCBF1A55883C00B2A397 /* User.swift */; };
 		22A3111B1A580F4600C56C96 /* AddMemberViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22A3111A1A580F4600C56C96 /* AddMemberViewController.swift */; };
+		22A3111D1A5819AC00C56C96 /* bug.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 22A3111C1A5819AC00C56C96 /* bug.jpg */; };
 		22F8558F1A55A60800703CA8 /* Database.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22F8558E1A55A60800703CA8 /* Database.swift */; };
 		22F855911A55AC2D00703CA8 /* AddProjectViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22F855901A55AC2D00703CA8 /* AddProjectViewController.swift */; };
 		22F855931A55B06500703CA8 /* ProjectDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22F855921A55B06500703CA8 /* ProjectDetailsViewController.swift */; };
@@ -48,6 +49,7 @@
 		229EBCBD1A55754E00B2A397 /* SingleBugViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SingleBugViewController.swift; sourceTree = "<group>"; };
 		229EBCBF1A55883C00B2A397 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		22A3111A1A580F4600C56C96 /* AddMemberViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddMemberViewController.swift; sourceTree = "<group>"; };
+		22A3111C1A5819AC00C56C96 /* bug.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = bug.jpg; sourceTree = "<group>"; };
 		22F8558E1A55A60800703CA8 /* Database.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Database.swift; sourceTree = "<group>"; };
 		22F855901A55AC2D00703CA8 /* AddProjectViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddProjectViewController.swift; sourceTree = "<group>"; };
 		22F855921A55B06500703CA8 /* ProjectDetailsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProjectDetailsViewController.swift; sourceTree = "<group>"; };
@@ -97,6 +99,7 @@
 		DF65261E1A43492600999CB0 /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				22A3111C1A5819AC00C56C96 /* bug.jpg */,
 				DF377D8B1A4AFBF70036BA61 /* 33-cabinet.png */,
 				DF377D891A4AFBC50036BA61 /* 202-alien.png */,
 				DF65264F1A43494A00999CB0 /* frog.jpg */,
@@ -263,6 +266,7 @@
 				DFB4A46F1A41E46D004DF91A /* LaunchScreen.xib in Resources */,
 				DF377D8C1A4AFBF70036BA61 /* 33-cabinet.png in Resources */,
 				DFB4A46C1A41E46D004DF91A /* Images.xcassets in Resources */,
+				22A3111D1A5819AC00C56C96 /* bug.jpg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
