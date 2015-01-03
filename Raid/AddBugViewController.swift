@@ -8,13 +8,14 @@
 
 import UIKit
 
-class AddBugViewController: UIViewController {
+class AddBugViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate {
     var project: Project!
     
     
     @IBOutlet weak var titleLabel: UITextField!
     @IBOutlet weak var selector: UIPickerView!
     
+    @IBOutlet weak var segmentedControl: UISegmentedControl!
     @IBOutlet weak var textView: UITextView!
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -23,6 +24,8 @@ class AddBugViewController: UIViewController {
         let controller = self.tabBarController as ProjectTabController
         self.project = controller.project
     }
+    
+    
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -42,17 +45,18 @@ class AddBugViewController: UIViewController {
     }*/
     
     func pickerView(pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-        return 1
+        return project.users.count
+        
     }
     
     // pragma MARK: UIPickerViewDelegate
     @IBAction func doneClicked(sender: AnyObject) {
-        project.addBug(titleLabel.text, priority: 1, desc: textView.text)
+        project.addBug(titleLabel.text, priority: segmentedControl.selectedSegmentIndex + 1, desc: textView.text, assgn: project.users[selector.selectedRowInComponent(0)])
         self.navigationController?.popToRootViewControllerAnimated(true)
     }
     
     func pickerView(pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String! {
-        return "asd"
+        return Database.sharedInstance.findUser(project.users[row]).name
     }
 
     

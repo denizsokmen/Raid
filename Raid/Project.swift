@@ -42,10 +42,12 @@ class Project {
         }
     }
     
-    func addBug(title: String, priority : Int, desc: String) {
+    func addBug(title: String, priority : Int, desc: String, assgn: Int) {
         var bug = BugReport(nm: title, prio: priority)
         bug.id = bugcounter++
         bug.description = desc
+        bug.assignee = assgn
+        bug.assigner = Database.sharedInstance.currentUser.id
         bugs.append(bug)
     }
     

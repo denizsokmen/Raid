@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		229EBCBE1A55754E00B2A397 /* SingleBugViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 229EBCBD1A55754E00B2A397 /* SingleBugViewController.swift */; };
 		229EBCC01A55883C00B2A397 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 229EBCBF1A55883C00B2A397 /* User.swift */; };
+		22A3111B1A580F4600C56C96 /* AddMemberViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22A3111A1A580F4600C56C96 /* AddMemberViewController.swift */; };
 		22F8558F1A55A60800703CA8 /* Database.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22F8558E1A55A60800703CA8 /* Database.swift */; };
 		22F855911A55AC2D00703CA8 /* AddProjectViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22F855901A55AC2D00703CA8 /* AddProjectViewController.swift */; };
 		22F855931A55B06500703CA8 /* ProjectDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22F855921A55B06500703CA8 /* ProjectDetailsViewController.swift */; };
@@ -46,6 +47,7 @@
 /* Begin PBXFileReference section */
 		229EBCBD1A55754E00B2A397 /* SingleBugViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SingleBugViewController.swift; sourceTree = "<group>"; };
 		229EBCBF1A55883C00B2A397 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		22A3111A1A580F4600C56C96 /* AddMemberViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddMemberViewController.swift; sourceTree = "<group>"; };
 		22F8558E1A55A60800703CA8 /* Database.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Database.swift; sourceTree = "<group>"; };
 		22F855901A55AC2D00703CA8 /* AddProjectViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddProjectViewController.swift; sourceTree = "<group>"; };
 		22F855921A55B06500703CA8 /* ProjectDetailsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProjectDetailsViewController.swift; sourceTree = "<group>"; };
@@ -145,6 +147,7 @@
 				22F8558E1A55A60800703CA8 /* Database.swift */,
 				22F855901A55AC2D00703CA8 /* AddProjectViewController.swift */,
 				22F855921A55B06500703CA8 /* ProjectDetailsViewController.swift */,
+				22A3111A1A580F4600C56C96 /* AddMemberViewController.swift */,
 			);
 			path = Raid;
 			sourceTree = "<group>";
@@ -289,6 +292,7 @@
 				22F855911A55AC2D00703CA8 /* AddProjectViewController.swift in Sources */,
 				DFCBE8D41A49F99B003FAB9A /* BugCell.swift in Sources */,
 				DF2FA6571A52C81E00E1CA39 /* Project.swift in Sources */,
+				22A3111B1A580F4600C56C96 /* AddMemberViewController.swift in Sources */,
 				DF2800541A49CE0300B216E6 /* RegisterViewController.swift in Sources */,
 				DF2FA6551A52C19100E1CA39 /* BugReport.swift in Sources */,
 				DF377D8E1A4B019E0036BA61 /* AddBugViewController.swift in Sources */,

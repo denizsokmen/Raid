@@ -15,6 +15,7 @@ class AddProjectViewController: UIViewController {
     
     @IBAction func doneClicked(sender: AnyObject) {
         var project = Project(nm: nameLabel.text)
+        project.users.append(Database.sharedInstance.currentUser.id)
         Database.sharedInstance.addProject(project)
         self.navigationController?.popToRootViewControllerAnimated(true)
         

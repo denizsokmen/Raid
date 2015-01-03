@@ -31,6 +31,14 @@ class ProjectDetailsViewController: UIViewController {
         
     }
     
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if (segue.identifier == "addmember") {
+            let memberVC = segue.destinationViewController as AddMemberViewController
+            memberVC.project = project
+            
+        }
+    }
+    
     override func viewDidAppear(animated: Bool) {
         developers.text = String(project.users.count)
         projectName.text = project.name

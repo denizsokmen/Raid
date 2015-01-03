@@ -26,9 +26,10 @@ class Database {
     var currentUser: User! = nil
     var userCounter: Int = 0
     
-    func addUser(user: String, pass: String) {
+    func addUser(user: String, pass: String, name: String) {
         let usr = User(user: user, pass: pass)
         usr.id = userCounter++
+        usr.name = name
         users.append(usr)
         
         save()
@@ -81,7 +82,8 @@ class Database {
             userArray.append(user.convertToDict())
         }
         
-        let dict = ["projects": projectArray, "users": userArray]
+        let counter = userCounter as NSObject
+        let dict = ["projects": projectArray, "users": userArray, "counter": counter]
         
         return dict
     }
@@ -100,6 +102,8 @@ class Database {
             var user = User(dict: i)
             users.append(user)
         }
+        
+        userCounter = dict["counter"] as Int
     }
     
     func save() {

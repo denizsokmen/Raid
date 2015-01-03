@@ -43,6 +43,24 @@ class BugViewController: UIViewController, UITableViewDelegate, UITableViewDataS
             project.bugs.sort({$0.priority > $1.priority})
         }
         
+        if (segmentedControl.selectedSegmentIndex == 2) {
+            for bug in project.bugs {
+                if (bug.assignee == Database.sharedInstance.currentUser.id) {
+                    filteredBugs.append(bug)
+                }
+            }
+            project.bugs.sort({$0.priority > $1.priority})
+        }
+        
+        if (segmentedControl.selectedSegmentIndex == 3) {
+            for bug in project.bugs {
+                if (bug.assigner == Database.sharedInstance.currentUser.id) {
+                    filteredBugs.append(bug)
+                }
+            }
+            project.bugs.sort({$0.priority > $1.priority})
+        }
+        
         tableView.reloadData()
     }
     
@@ -64,7 +82,7 @@ class BugViewController: UIViewController, UITableViewDelegate, UITableViewDataS
         cell.title.text = bug.title
         let title = project.name.uppercaseString.substringToIndex(advance(project.name.uppercaseString.startIndex, 3))
         cell.bugid.text = title + "-" + String(bug.id)
-        cell.assignee.text = "Assignee: Hakan Taşıyan"
+        cell.assignee.text = "Assignee: " + Database.sharedInstance.findUser(bug.assignee).name
         let color: CGFloat = CGFloat(bug.priority) / 5.0
         println(color)
         

@@ -139,7 +139,7 @@
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="P0q-Mt-SsT" id="dFd-1V-2Zz">
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Repeat Password" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="VsK-kw-ucp">
+                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Name Surname" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="VsK-kw-ucp">
                                                     <rect key="frame" x="8" y="7" width="584" height="30"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                     <textInputTraits key="textInputTraits"/>
@@ -208,6 +208,7 @@
                         </connections>
                     </tableView>
                     <connections>
+                        <outlet property="nameLabel" destination="VsK-kw-ucp" id="u88-Me-oxS"/>
                         <outlet property="password" destination="kWC-av-0ed" id="0AO-3x-ink"/>
                         <outlet property="userName" destination="mYX-YB-84V" id="FUv-lc-FTs"/>
                     </connections>
@@ -624,6 +625,7 @@
                     </view>
                     <navigationItem key="navigationItem" title="Submit Bug" id="bZO-he-Hfx"/>
                     <connections>
+                        <outlet property="segmentedControl" destination="ViX-I4-bwx" id="0XZ-VC-p2W"/>
                         <outlet property="selector" destination="RDM-K2-5SP" id="Bsn-3g-b8b"/>
                         <outlet property="textView" destination="KJQ-K3-j2D" id="W9F-f9-few"/>
                         <outlet property="titleLabel" destination="PUy-1G-xeM" id="ZRx-IB-jBm"/>
@@ -721,6 +723,7 @@
                                 </state>
                                 <connections>
                                     <action selector="addMember:" destination="MIb-qI-geJ" eventType="touchUpInside" id="V7M-By-htS"/>
+                                    <segue destination="V6R-RA-5Nh" kind="show" identifier="addmember" id="O86-rg-SyY"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IIa-t7-c28">
@@ -768,6 +771,53 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="DIb-Ge-R2a" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="3401" y="1276"/>
+        </scene>
+        <!--AddMember-->
+        <scene sceneID="cS6-PA-aeI">
+            <objects>
+                <viewController title="AddMember" id="V6R-RA-5Nh" customClass="AddMemberViewController" customModule="Raid" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="nAZ-YD-vSW"/>
+                        <viewControllerLayoutGuide type="bottom" id="I9D-X4-zKc"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="cdx-a4-SDt">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Tih-KM-D5k">
+                                <rect key="frame" x="0.0" y="64" width="600" height="162"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="V6R-RA-5Nh" id="XhG-hu-RTs"/>
+                                    <outlet property="delegate" destination="V6R-RA-5Nh" id="J8t-cB-5Yv"/>
+                                </connections>
+                            </pickerView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OkQ-tx-w0W">
+                                <rect key="frame" x="16" y="234" width="568" height="30"/>
+                                <state key="normal" title="Add">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="addMember:" destination="V6R-RA-5Nh" eventType="touchUpInside" id="tzF-pp-oJY"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="OkQ-tx-w0W" firstAttribute="trailing" secondItem="cdx-a4-SDt" secondAttribute="trailingMargin" id="2aH-NC-lBi"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="Tih-KM-D5k" secondAttribute="trailing" constant="-16" id="9oJ-y8-p34"/>
+                            <constraint firstItem="Tih-KM-D5k" firstAttribute="leading" secondItem="cdx-a4-SDt" secondAttribute="leadingMargin" constant="-16" id="BCq-h8-kE0"/>
+                            <constraint firstItem="OkQ-tx-w0W" firstAttribute="leading" secondItem="cdx-a4-SDt" secondAttribute="leadingMargin" id="NUl-6u-m0Y"/>
+                            <constraint firstItem="OkQ-tx-w0W" firstAttribute="top" secondItem="Tih-KM-D5k" secondAttribute="bottom" constant="8" id="Wgn-2h-bgx"/>
+                            <constraint firstItem="Tih-KM-D5k" firstAttribute="top" secondItem="nAZ-YD-vSW" secondAttribute="bottom" id="bxk-SP-PZW"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="picker" destination="Tih-KM-D5k" id="Rgc-Wg-jRZ"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="oWQ-X9-iqz" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4307" y="1276"/>
         </scene>
         <!--Projects-->
         <scene sceneID="8Xf-6f-oyD">
